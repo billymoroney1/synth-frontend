@@ -6,11 +6,11 @@ import Layout from '../components/Layout'
 
 
 
-export default function Synth() {
+export default function Register() {
     return (
         <Layout>
             <div className={styles.container}>
-                Synth
+                Register
             </div>
         </Layout>
     )

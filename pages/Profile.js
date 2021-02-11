@@ -1,11 +1,17 @@
 import React from 'react'
 
+import styles from '../styles/Home.module.css'
+
+import Layout from '../components/Layout'
+
+
 
 export default function Profile() {
     return (
-        <div>
-            <div>profile</div>
-            <a href='/'>home</a>
-        </div>
+        <Layout>
+            <div className={styles.container}>
+                Profile
+            </div>
+        </Layout>
     )
 }
