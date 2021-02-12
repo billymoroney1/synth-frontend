@@ -12,6 +12,7 @@
     "next": "10.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-validation": "^3.0.7"
+    "react-validation": "^3.0.7",
+    "validator": "^13.5.2"
   }
 }
