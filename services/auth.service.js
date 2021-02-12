@@ -32,6 +32,8 @@ export const login = (username, password) => {
 //logout
 export const logout = () => {
     removeItem('user')
+    console.log('user logged out')
+    //need to redirect to home3? or rely on authentication to take user back to login screen
 }
 
 //get current user
