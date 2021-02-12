@@ -86,6 +86,7 @@ export default function Register(props) {
 
     const onChangeEmail = (e) => {
         const email = e.target.value
+        console.log(email)
         setEmail(email)
     }
 

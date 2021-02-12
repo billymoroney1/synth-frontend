@@ -6,7 +6,7 @@ const API_URL="http://localhost:8080/api/auth/"
 //register User
 export const register =(username, email, password) => {
     return axios
-    .post(API_URL+"signup", {
+    .post(API_URL+"register", {
         username,
         email,
         password
