@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { getCurrentUser, logout} from '../services/auth.service'
+import { getCurrentUser } from '../services/auth.service'
 import Link from 'next/link'
+import { removeItem } from '../utilities/localStorage.utilities'
+
+//NEXT router
+import { useRouter } from 'next/router'
 
 
 export default function Layout(props) {
     const [currentUser, setCurrentUser] = useState(undefined)
+    const router = useRouter()
 
     useEffect(() => {
         const user = getCurrentUser()
@@ -13,6 +18,12 @@ export default function Layout(props) {
             setCurrentUser(user)
         }
     }, [])
+
+    //logout
+    const logout = () => {
+        removeItem('user')
+        router.push('/Login')
+    }
 
     return (
         <div>

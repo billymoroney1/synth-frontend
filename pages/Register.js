@@ -4,6 +4,9 @@ import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
 import { isEmail } from 'validator'
 
+//NEXT router
+import { useRouter } from 'next/router'
+
 //component
 import FormGroup from '../components/FormGroup'
 import ButtonSpinner from '../components/ButtonSpinner'
@@ -65,6 +68,7 @@ const vemail = (value) => {
 export default function Register(props) {
     const form = useRef()
     const checkBtn = useRef()
+    const router = useRouter()
 
     //state
     const [username, setUsername] = useState("")
@@ -106,7 +110,7 @@ export default function Register(props) {
 
                     //login the new user 
                     login(username, password).then(
-                        console.log('redirect using next js')
+                        router.push('/Profile')
                     )
                 },
                 (error) => {

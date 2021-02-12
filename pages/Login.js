@@ -5,6 +5,9 @@ import CheckButton from 'react-validation/build/button'
 
 import styles from '../styles/Home.module.css'
 
+//NEXT router
+import { useRouter } from 'next/router'
+
 //component
 import FormGroup from '../components/FormGroup'
 import ButtonSpinner from '../components/ButtonSpinner'
@@ -31,6 +34,9 @@ export default function Login(props) {
     //refs
     const form = useRef()
     const checkBtn = useRef()
+
+    //router
+    const router = useRouter()
 
     //state
     const [username, setUsername] = useState("")
@@ -60,8 +66,7 @@ export default function Login(props) {
         if (checkBtn.current.context._errors.length === 0) {
             login(username, password).then(
                 () => {
-                    console.log('redirect in nextjs')
-
+                    router.push('/Profile')
                 },
                 (error) => {
                     //set loading to false
