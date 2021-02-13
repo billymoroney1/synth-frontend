@@ -7,6 +7,9 @@ import Layout from '../components/Layout'
 //services
 import { getPresets } from '../services/preset.service'
 
+//components
+import Preset from '../components/Profile/Preset'
+
 
 
 export default function Profile() {
@@ -23,7 +26,7 @@ export default function Profile() {
     }, [])
 
     const viewPresets = presets.map((p, key) => {
-        return <li key={key}>{p.name}</li>
+        return <Preset name={p.name} id={p._id} details={p.options} />
     })
 
     return (

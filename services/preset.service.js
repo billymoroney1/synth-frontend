@@ -18,6 +18,15 @@ export const createPreset = (name, options) => {
 //PUT - editing a preset
 
 //DELETE - delete a preset
+export const deletePreset = (id) => {
+    return axios
+    .delete(API_URL+"preset", {
+        data: {
+            _id: id
+        }
+    })
+
+}
 
 //GET - get all presets
 export const getPresets = () => {
