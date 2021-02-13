@@ -4,6 +4,7 @@ import Trigger from '../components/Synth/Trigger'
 import EffectControl from '../components/Synth/EffectControl'
 import Dropdown from '../components/Synth/Dropdown'
 import Envelope from '../components/Synth/Envelope'
+import SavePreset from '../components/Synth/SavePreset'
 
 import Layout from '../components/Layout'
 
@@ -17,6 +18,8 @@ export default function Synth(props) {
     const [filter, setFilter] = useState("lowpass")
     //manage envelope
     const [envelope, setEnvelope] = useState([0.1, 0.2, 1.0, 0.8])
+    //full preset state
+    const [preset, setPreset] = useState([])
 
     //use drop down menu to change waveform
     const optionSelect = (e) => {
@@ -40,10 +43,16 @@ export default function Synth(props) {
         setSynth([...synth])
     }
 
-    //trigger rerender on envelope state change
+    //gather state to pass down into SavePreset component
     useEffect(() => {
-        // console.log(envelope)
-    }, [envelope])
+        const fullPreset = []
+        fullPreset.push(wave)
+        fullPreset.push(filter)
+        fullPreset.push(synth)
+        fullPreset.push(envelope)
+        console.table(fullPreset)
+        setPreset([...fullPreset])
+    }, [envelope, wave, filter, synth])
 
     //******** */
     //ENVELOPE HELPER FUNCTIONS
@@ -82,6 +91,7 @@ export default function Synth(props) {
                     <EffectControl name={'phaser'} add={effectAdd} remove={effectRemove} />
                     <EffectControl name={'delay'} add={effectAdd} remove={effectRemove} />
                 </div>
+                <SavePreset preset={preset} />
             </div>
         </Layout>
     )

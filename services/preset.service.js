@@ -1,10 +1,19 @@
 import axios from 'axios'
 
-const API_URL='http://synth-backend.heroku.com/api/presets/'
+const API_URL='http://synth-backend.herokuapp.com/api/presets/'
 
-//headers?????????? authHeader.utilities???????
+import {setItem, getItem, removeItem} from '../utilities/localStorage.utilities'
 
-//POST - create a new preset
+//create preset
+export const createPreset = (name, options) => {
+    return axios
+    .post(API_URL+"preset", {
+        name,
+        options
+    })
+}
+
+//POST - create a new prese
 
 //PUT - editing a preset
 
