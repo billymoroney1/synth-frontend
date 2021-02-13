@@ -19,3 +19,9 @@ export const createPreset = (name, options) => {
 
 //DELETE - delete a preset
 
+//GET - get all presets
+export const getPresets = () => {
+    return axios
+    .get(API_URL+"all")
+}
+
