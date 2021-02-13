@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 import {setItem, getItem, removeItem} from '../utilities/localStorage.utilities'
 
-const API_URL="http://localhost:8080/api/auth/"
+const API_URL="http://synth-backend.herokuapp.com/api/auth/"
 //register User
 export const register =(username, email, password) => {
     return axios
