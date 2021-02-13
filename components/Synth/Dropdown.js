@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 
 export default function WaveSelect(props) {
 
-    const list = props.options.map((option) => {
-            return <option value={option}>{option}</option>
+    const list = props.options.map((option, key) => {
+            return <option key={key} value={option}>{option}</option>
         })
 
     return (

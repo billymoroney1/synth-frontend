@@ -114,7 +114,9 @@ export default function Register(props) {
                     )
                 },
                 (error) => {
-                    setMessage(resMessage(error))
+                    //This code is resulting in an object as child?
+                    // setMessage(resMessage(error))
+                    console.log(error)
                     setSuccessful(false)
                 }
             )

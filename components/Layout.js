@@ -67,7 +67,7 @@ export default function Layout(props) {
                             </Link>
                         </li>
                         <li>
-                            <Link href='Register'>
+                            <Link href='/Register'>
                                 Register
                             </Link>
                         </li>

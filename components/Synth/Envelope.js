@@ -26,13 +26,13 @@ export default function Envelope(props) {
                 <label for='release'>release</label>
                 <input type='number' id='release' name='release' min='0' max='5' step="0.01" />
             </form> */}
-            <label for='attack'>attack</label>
+            <label htmlFor='attack'>attack</label>
             <input onChange={handleChange} type='range' value={attack} id='attack' name='attack' min='0' max='2' step='0.1' />
-            <label for='decay'>decay</label>
+            <label htmlFor='decay'>decay</label>
             <input onChange={handleChange} type='range' value={decay} id='decay' name='decay' min='0' max='2' step='0.1' />
-            <label for='sustain'>sustain</label>
+            <label htmlFor='sustain'>sustain</label>
             <input onChange={handleChange} type='range' value={sustain} id='sustain' name='sustain' min='0' max='1' step='0.1' />
-            <label for='release'>release</label>
+            <label htmlFor='release'>release</label>
             <input onChange={handleChange} type='range' value={release} id='release' name='release' min='0' max='5' step='0.1' />
         </div>
     )
