@@ -18,25 +18,11 @@ export default function Synth(props) {
 
     const router = useRouter()
     const { pid } = router.query
-    console.log(pid)
-
-    //hook to query for single preset
-    useEffect(() => {
-        //allow dynamic routes so we can edit presets
-        
-        //ping API for preset data if there is a query param
-        //     getOnePreset(pid.id).then((response) => {
-        //         console.log(response.data)
-        //     }).catch((err) => {
-        //         console.log(err)
-        //     })
-        // }
-        //need to set state
-
-        //also need to pass state to the buttons
-
-    }, [])
-
+    
+    //if waiting for api response
+    const [loading, setLoading] = useState(true)
+    //manage this state to flip between create and edit UI
+    const [edit, setEdit] = useState(false)
     //keep track of effects to be passed to the synth(trigger)
     const [synth, setSynth] = useState([])
     //keep track of waveform
@@ -48,6 +34,24 @@ export default function Synth(props) {
     //full preset state
     const [preset, setPreset] = useState([])
 
+    //hook to query for single preset
+    useEffect(async () => {
+        //ping API for preset data if query param is something other than 0
+        if(pid !== 0){
+            await getOnePreset(pid).then((response) => {
+                setLoading(false)
+                console.log('response:', response.data)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+        //need to set state
+        setEdit(true)
+        //how can i rerender?
+
+        //also need to pass state to the buttons
+    }, [])
+
     //use drop down menu to change waveform
     const optionSelect = (e) => {
         if (e.target.name === 'waveType'){
@@ -55,7 +59,6 @@ export default function Synth(props) {
         } else if (e.target.name === 'filterType') {
             setFilter(e.target.value)
         }
-        console.log(e.target.value)
     }
 
     //helper function to pass down into effects
@@ -77,7 +80,6 @@ export default function Synth(props) {
         fullPreset.push(filter)
         fullPreset.push(synth)
         fullPreset.push(envelope)
-        console.table(fullPreset)
         setPreset([...fullPreset])
     }, [envelope, wave, filter, synth])
 
@@ -103,6 +105,7 @@ export default function Synth(props) {
 
     return (
         <Layout>
+        {!loading && (
             <div className='flex w-3/5 m-auto flex-col space-y-12'>
                 <div className='h-42 flex justify-around content-center'>
                     <Trigger synth={synth} wave={wave} envelope={envelope} filter={filter} />
@@ -120,6 +123,7 @@ export default function Synth(props) {
                 </div>
                 <SavePreset preset={preset} />
             </div>
+        )}
         </Layout>
     )
 }
