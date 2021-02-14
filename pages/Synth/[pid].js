@@ -1,14 +1,41 @@
 import React, { useState, useEffect } from 'react'
-import MainOnOff from '../components/Synth/MainOnOff'
-import Trigger from '../components/Synth/Trigger'
-import EffectControl from '../components/Synth/EffectControl'
-import Dropdown from '../components/Synth/Dropdown'
-import Envelope from '../components/Synth/Envelope'
-import SavePreset from '../components/Synth/SavePreset'
+import MainOnOff from '../../components/Synth/MainOnOff'
+import Trigger from '../../components/Synth/Trigger'
+import EffectControl from '../../components/Synth/EffectControl'
+import Dropdown from '../../components/Synth/Dropdown'
+import Envelope from '../../components/Synth/Envelope'
+import SavePreset from '../../components/Synth/SavePreset'
 
-import Layout from '../components/Layout'
+//nextjs router
+import { useRouter } from 'next/router'
+
+//preset service
+import { getOnePreset } from '../../services/preset.service'
+
+import Layout from '../../components/Layout'
 
 export default function Synth(props) {
+
+    const router = useRouter()
+    const { pid } = router.query
+    console.log(pid)
+
+    //hook to query for single preset
+    useEffect(() => {
+        //allow dynamic routes so we can edit presets
+        
+        //ping API for preset data if there is a query param
+        //     getOnePreset(pid.id).then((response) => {
+        //         console.log(response.data)
+        //     }).catch((err) => {
+        //         console.log(err)
+        //     })
+        // }
+        //need to set state
+
+        //also need to pass state to the buttons
+
+    }, [])
 
     //keep track of effects to be passed to the synth(trigger)
     const [synth, setSynth] = useState([])
