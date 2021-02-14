@@ -39,8 +39,14 @@ export default function Synth(props) {
         //ping API for preset data if query param is something other than 0
         if(pid !== 0){
             await getOnePreset(pid).then((response) => {
+                const data = response.data[0]
+                console.log('DATA: ', data.options)
+                console.log('LOADING: ', loading)
+                setWave(data.options[0])
+                setEnvelope(data.options[3])
+                setFilter(data.options[1])
+                setSynth(data.options[2])
                 setLoading(false)
-                console.log('response:', response.data)
             }).catch((err) => {
                 console.log(err)
             })
@@ -51,6 +57,11 @@ export default function Synth(props) {
 
         //also need to pass state to the buttons
     }, [])
+
+    useEffect(() => {
+        console.log(wave)
+        setLoading(false)
+    }, [wave])
 
     //use drop down menu to change waveform
     const optionSelect = (e) => {
@@ -109,7 +120,7 @@ export default function Synth(props) {
             <div className='flex w-3/5 m-auto flex-col space-y-12'>
                 <div className='h-42 flex justify-around content-center'>
                     <Trigger synth={synth} wave={wave} envelope={envelope} filter={filter} />
-                    <Dropdown name='waveType' options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
+                    <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
                     <Envelope adsrChange={adsrChange} env={envelope} />
                     <MainOnOff />
                     {/* <Canvas /> */}
@@ -117,7 +128,7 @@ export default function Synth(props) {
                 <div className='flex justify-around'>
                     <EffectControl name={'reverb'} add={effectAdd} remove={effectRemove} />
                     <EffectControl name={'filter'} add={effectAdd} remove={effectRemove} />
-                    <Dropdown name='filterType' options={['lowpass', 'highpass']} handleChange={optionSelect} />
+                    <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
                     <EffectControl name={'phaser'} add={effectAdd} remove={effectRemove} />
                     <EffectControl name={'delay'} add={effectAdd} remove={effectRemove} />
                 </div>
