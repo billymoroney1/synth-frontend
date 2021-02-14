@@ -81,10 +81,12 @@ export default function Login(props) {
     }
     return (
         <Layout>
-            <div className={styles.container}>
-                <Form onSubmit ={handleLogin} ref={form}>
+            <div className='{styles.container} max-w-md w-full mx-auto mt-4 bg-white p-8 border border-gray-300'>
+                <div className='text-3xl font-bold text-gray-900 text-center mb-8'>Sign In</div>
+                <Form onSubmit ={handleLogin} ref={form} className='space-y-7'>
                     <FormGroup text="username">
                         <Input
+                            className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
                             type='text'
                             name="username"
                             value={username}
@@ -94,6 +96,7 @@ export default function Login(props) {
                     </FormGroup>
                     <FormGroup text="password">
                         <Input
+                            className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
                             type='password'
                             name="password"
                             value={password}
