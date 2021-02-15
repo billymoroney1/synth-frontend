@@ -37,13 +37,6 @@ exports.patch = (Tone, preset, sequence = null) => {
         clearInterval(myTimer)
     }, 2000)
 
-    //how chain 2 synths?
-
-
-    //check to see how many oscillators are active and type of waveform
-    // const synth = new Tone.Oscillator("440", "sine")
-
-
     //check which effects are on, if no effects are on, connect synth toDestination
     let noEffects = true
     for (let i = 0; i < effects.length;  i++){
@@ -86,10 +79,6 @@ exports.patch = (Tone, preset, sequence = null) => {
         synth.connect(Tone.getDestination())
     }
 
-    //following conditionals test to see if corresponding effect is in synth state, if it is, create that module and add it to the chain
-    
-    //trigger a note for a specified duration
-    // synth.triggerAttackRelease("C4", "8n")
     synth.triggerAttackRelease("D2", "8n")
 }
 
