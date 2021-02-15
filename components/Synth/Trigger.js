@@ -49,42 +49,50 @@ export default function Trigger(props) {
         // const synth = new Tone.Oscillator("440", "sine")
 
 
-        //if there are no effects, send the audio directly to destination
-        if (props.synth.length === 0){
+        //check which effects are on, if no effects are on, connect synth toDestination
+        let noEffects = true
+        for (let i = 0; i < props.effects.length;  i++){
+            if (props.effects[i].status === true){
+                noEffects = false
+                if (props.effects[i].name === 'reverb'){
+                    console.log('contains reverb!')
+                    const reverb = new Tone.Reverb("2").toDestination()
+                    synth.connect(reverb)
+                }
+        
+                if (props.effects[i].name === 'filter'){
+                    console.log('props.filter: ', props.filter)
+                    let filter
+                    if (props.filter === 'lowpass'){
+                        filter = new Tone.OnePoleFilter('300', 'lowpass').toDestination()
+                    } else if (props.filter === 'highpass'){
+                        filter = new Tone.OnePoleFilter('1200', 'highpass').toDestination()
+                    }
+                    synth.connect(filter)
+                }  
+        
+                if (props.effects[i].name === 'phasor'){
+                    const phaser = new Tone.Phaser({
+                    "frequency" : 15,
+                    "octaves" : 6,
+                    "baseFrequency" : 1000})
+                    .toDestination()
+                    synth.connect(phaser)
+                }
+        
+                if (props.effects[i].name === 'delay'){
+                    const delay = new Tone.FeedbackDelay("8n", 0.5).toDestination()
+                    synth.connect(delay)
+                }
+            }
+        }
+
+        if (noEffects) {
             synth.connect(Tone.getDestination())
         }
 
         //following conditionals test to see if corresponding effect is in synth state, if it is, create that module and add it to the chain
-        if (props.synth.includes('reverb')){
-            console.log('contains reverb!')
-            const reverb = new Tone.Reverb("2").toDestination()
-            synth.connect(reverb)
-        }
-
-        if (props.synth.includes('filter')){
-            console.log('props.filter: ', props.filter)
-            let filter
-            if (props.filter === 'lowpass'){
-                filter = new Tone.OnePoleFilter('300', 'lowpass').toDestination()
-            } else if (props.filter === 'highpass'){
-                filter = new Tone.OnePoleFilter('1200', 'highpass').toDestination()
-            }
-            synth.connect(filter)
-        }  
-
-        if (props.synth.includes('phaser')){
-            const phaser = new Tone.Phaser({
-            "frequency" : 15,
-            "octaves" : 6,
-            "baseFrequency" : 1000})
-            .toDestination()
-            synth.connect(phaser)
-        }
-
-        if (props.synth.includes('delay')){
-            const delay = new Tone.FeedbackDelay("8n", 0.5).toDestination()
-            synth.connect(delay)
-        }
+        
         //trigger a note for a specified duration
         // synth.triggerAttackRelease("C4", "8n")
         synth.triggerAttackRelease("D2", "8n")
