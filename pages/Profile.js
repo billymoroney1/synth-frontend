@@ -15,11 +15,13 @@ import Preset from '../components/Profile/Preset'
 export default function Profile() {
 
     const [presets, setPresets] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getPresets().then((response) => {
             setPresets(response.data)
             console.log(response.data)
+            setLoading(false)
         }).catch(err => {
             console.log(err)
         })
@@ -31,13 +33,14 @@ export default function Profile() {
 
     return (
         <Layout>
+        {!loading && (
             <div className={styles.container}>
                 Profile
                 <ul>
                     {viewPresets}
                 </ul>
             </div>
-            
+        )}
         </Layout>
     )
 }
