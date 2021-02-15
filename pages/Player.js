@@ -46,6 +46,7 @@ export default function Player() {
 
     useEffect(() => {
         console.log('PRESETS: ', presets)
+        setCurrent(presets[0])
         popNames()
     }, [presets])
 

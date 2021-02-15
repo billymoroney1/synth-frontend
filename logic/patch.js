@@ -25,17 +25,17 @@ exports.patch = (Tone, preset, sequence = null) => {
         }
     })
 
-    // const wave = new Tone.Waveform(16)
+    const wf = new Tone.Waveform(16)
 
-    // synth.connect(wave)
+    synth.connect(wf)
 
-    // let myTimer = setInterval(() => {
-    //     console.log(wave.getValue())
-    // }, 100)
+    let myTimer = setInterval(() => {
+        console.log(wf.getValue())
+    }, 100)
 
-    // setTimeout(() => {
-    //     clearInterval(myTimer)
-    // }, 2000)
+    setTimeout(() => {
+        clearInterval(myTimer)
+    }, 2000)
 
     //how chain 2 synths?
 
