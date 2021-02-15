@@ -5,8 +5,8 @@ import { getPresets } from '../services/preset.service'
 
 //components
 import Dropdown from '../components/Synth/Dropdown'
-
-import styles from '../styles/Home.module.css'
+//using this to test before implementing sequence
+import Trigger from '../components/Synth/Trigger'
 
 import Layout from '../components/Layout'
 
@@ -15,6 +15,8 @@ import Layout from '../components/Layout'
 export default function Player() {
 
     const [presets, setPresets] = useState([])
+    //current selected preset in menu
+    const [current, setCurrent] = useState()
     //preset names
     const [options, setOptions] = useState([])
     const [loading, setLoading] = useState(true)
@@ -31,20 +33,40 @@ export default function Player() {
     }, [])
 
     const popNames = () => {
-        const effects = presets.effects
+        const names = []
+        for (let i = 0; i < presets.length; i++){
+            names.push(presets[i].name)
+        }
+        setOptions(names)
     }
 
-    //make a new component, sequence, takes preset data. need to extract some logic from trigger component to reuse 
-    //sequences component should also extract waveform data to manipulate canvas component?
+    useEffect(() => {
+        console.log('PRESETS: ', presets)
+        popNames()
+    }, [presets])
+
+    const onChangeCurrent = (e) => {
+        //find matching preset and set to current state
+        console.log('DROP DOWN VALUE: ', e.target.value)
+        for (let i = 0; i < presets.length; i++){
+            if (presets[i].name === e.target.value){
+                setCurrent(presets[i])
+            }
+        }
+    }
+
+    const handleClick = () => {
+        console.log(current)
+    }
 
 
     return (
         <Layout>
-            <div className={styles.container}>
-                Player
-            </div>
             {!loading && (
-                <Dropdown name='waveType' options={['sine', 'triangle', 'square', 'sawtooth']} />
+                <div>
+                    <Dropdown name='waveType' handleChange={onChangeCurrent} options={options} />
+                    <button onClick={handleClick}>See Preset</button> 
+                </div>
             )}
         </Layout>
     )
