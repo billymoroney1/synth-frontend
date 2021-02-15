@@ -10,6 +10,10 @@ import Trigger from '../components/Synth/Trigger'
 
 import Layout from '../components/Layout'
 
+import * as Tone from 'tone'
+
+const patch = require('../logic/patch')
+
 
 
 export default function Player() {
@@ -59,13 +63,19 @@ export default function Player() {
         console.log(current)
     }
 
+    const play = () => {
+        console.log('CURRENT: ', current)
+        patch.patch(Tone, current)
+    }
+
 
     return (
         <Layout>
             {!loading && (
                 <div>
                     <Dropdown name='waveType' handleChange={onChangeCurrent} options={options} />
-                    <button onClick={handleClick}>See Preset</button> 
+                    <button onClick={handleClick}>See Preset</button>
+                    <button onClick={play}>Play</button>
                 </div>
             )}
         </Layout>

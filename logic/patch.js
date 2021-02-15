@@ -1,16 +1,29 @@
-//compile all data to make final sound
-//MODIFY SO THAT IT CAN ACCEPT PRESET OBJECT, INSTEAD OF USE ALL THE PROPS IN THE TRIGGER COMPONENT. THEN REFACTOR TRIGGER?
-export.patch = (preset) => {
+
+exports.patch = (Tone, preset) => {
+
+    // current preset object structure:
+    // wave
+    // filter
+    // effects
+    // envelope
+
+    console.log('PRESET: ', preset)
+
+    const wave = preset.options[0]
+    const filter = preset.options[1]
+    const effects = preset.options[2]
+    const envelope = preset.options[3]
+
     //make a monosynth
     const synth = new Tone.Synth({
         oscillator: {
-            type: props.wave
+            type: wave
         },
         envelope: {
-            attack: props.envelope[0],
-            decay: props.envelope[1],
-            sustain: props.envelope[2],
-            release: props.envelope[3]
+            attack: envelope[0],
+            decay: envelope[1],
+            sustain: envelope[2],
+            release: envelope[3]
         }
     })
 
@@ -35,27 +48,27 @@ export.patch = (preset) => {
 
     //check which effects are on, if no effects are on, connect synth toDestination
     let noEffects = true
-    for (let i = 0; i < props.effects.length;  i++){
-        if (props.effects[i].status === true){
+    for (let i = 0; i < effects.length;  i++){
+        if (effects[i].status === true){
             noEffects = false
-            if (props.effects[i].name === 'reverb'){
+            if (effects[i].name === 'reverb'){
                 console.log('contains reverb!')
                 const reverb = new Tone.Reverb("2").toDestination()
                 synth.connect(reverb)
             }
     
-            if (props.effects[i].name === 'filter'){
-                console.log('props.filter: ', props.filter)
-                let filter
-                if (props.filter === 'lowpass'){
-                    filter = new Tone.OnePoleFilter('300', 'lowpass').toDestination()
-                } else if (props.filter === 'highpass'){
-                    filter = new Tone.OnePoleFilter('1200', 'highpass').toDestination()
+            if (effects[i].name === 'filter'){
+                console.log('props.filter: ', filter)
+                let f
+                if (filter === 'lowpass'){
+                    f = new Tone.OnePoleFilter('300', 'lowpass').toDestination()
+                } else if (filter === 'highpass'){
+                    f = new Tone.OnePoleFilter('1200', 'highpass').toDestination()
                 }
-                synth.connect(filter)
+                synth.connect(f)
             }  
     
-            if (props.effects[i].name === 'phasor'){
+            if (effects[i].name === 'phasor'){
                 const phaser = new Tone.Phaser({
                 "frequency" : 15,
                 "octaves" : 6,
@@ -64,7 +77,7 @@ export.patch = (preset) => {
                 synth.connect(phaser)
             }
     
-            if (props.effects[i].name === 'delay'){
+            if (effects[i].name === 'delay'){
                 const delay = new Tone.FeedbackDelay("8n", 0.5).toDestination()
                 synth.connect(delay)
             }
