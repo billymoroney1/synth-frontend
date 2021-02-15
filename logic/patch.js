@@ -1,13 +1,11 @@
 
-exports.patch = (Tone, preset) => {
+exports.patch = (Tone, preset, sequence = null) => {
 
     // current preset object structure:
     // wave
     // filter
     // effects
     // envelope
-
-    console.log('PRESET: ', preset)
 
     const wave = preset.options[0]
     const filter = preset.options[1]
