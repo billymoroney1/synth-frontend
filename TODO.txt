@@ -11,6 +11,10 @@ sliders to effects?
 
 how implement poly for chords?
 
+how and where could i use lfos?
+
+implement cards for profile to view presets and some details
+
 add 4 x 4 squares to player, each square is a sequence
 (can i do global transport but ability to run several sequences at once?)
 
