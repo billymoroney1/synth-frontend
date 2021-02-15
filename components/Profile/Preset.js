@@ -16,16 +16,14 @@ export default function Preset(props) {
         deletePreset(props.id)
     }
 
-    const details = props.details.map((d, key) => {
-        return <li key={key}>{d}</li>
-    })
+
 
     return (
         <div>
         {visible && (
             <div>
                 <span>{props.name}</span>
-                {details}
+                
                 <Link href={`/Synth/${props.id}`}>
                     <a>Edit</a>
                 </Link>

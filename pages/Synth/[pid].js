@@ -51,7 +51,7 @@ export default function Synth(props) {
                 setWave(data.options[0])
                 setEnvelope(data.options[3])
                 setFilter(data.options[1])
-                setEffects(data.options[2])
+                setEffects([...data.options[2]])
                 setLoading(false)
             }).catch((err) => {
                 console.log(err)

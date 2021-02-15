@@ -19,7 +19,7 @@ export default function Profile() {
 
     useEffect(() => {
         getPresets().then((response) => {
-            setPresets(response.data)
+            setPresets([...response.data])
             console.log(response.data)
             setLoading(false)
         }).catch(err => {
@@ -28,7 +28,7 @@ export default function Profile() {
     }, [])
 
     const viewPresets = presets.map((p, key) => {
-        return <Preset name={p.name} id={p._id} details={p.options} />
+        return <Preset name={p.name} id={p._id} />
     })
 
     return (
