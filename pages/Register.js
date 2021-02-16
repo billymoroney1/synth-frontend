@@ -125,10 +125,12 @@ export default function Register(props) {
 
     return (
         <Layout>
-            <div className={styles.container}>
-                <Form onSubmit={handleRegister} ref={form}>
+            <div className='{styles.container} max-w-md w-full mx-auto mt-4 bg-white p-8 border border-gray-300'>
+                <div className='text-3xl font-bold text-gray-900 text-center mb-8'>Sign Up</div>
+                <Form onSubmit={handleRegister} ref={form} className='space-y-3'>
                     <FormGroup text="username">
                         <Input
+                            className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
                             type="text"
                             name="username"
                             value={username}
@@ -138,6 +140,7 @@ export default function Register(props) {
                     </FormGroup>
                     <FormGroup text="email">
                         <Input
+                            className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
                             type="text"
                             name="email"
                             value={email}
@@ -147,6 +150,7 @@ export default function Register(props) {
                     </FormGroup>
                     <FormGroup text="password">
                         <Input
+                            className='w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500'
                             type="text"
                             name="password"
                             value={password}
