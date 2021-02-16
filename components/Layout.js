@@ -27,8 +27,8 @@ export default function Layout(props) {
 
     return (
         <div>
-            <nav>
-                <ul>
+            <nav className='flex w-full bg-gray-600'>
+                <ul className='flex w-full space-x-12 object-right m-6'>
                     <li>
                         <Link href='/'>
                             <a>Home</a>

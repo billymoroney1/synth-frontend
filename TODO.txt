@@ -1,3 +1,11 @@
+MVP:
+more instruments
+more effects
+few sequences to choose from style
+
+EXTRA:
+multiple instruments in paralell
+
 add ability to add instruments
 add ability run two instruments in parallel
 add more effects, when reach a certain point, access via dropdown
