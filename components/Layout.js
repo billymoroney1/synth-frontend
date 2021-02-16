@@ -43,13 +43,6 @@ export default function Layout(props) {
                     )}
                     {currentUser && (
                         <li>
-                            <Link href='/Player'>
-                                <a>Player</a>
-                            </Link>
-                        </li>
-                    )}
-                    {currentUser && (
-                        <li>
                             <Link href='/Synth/0'>
                                 <a>Synth</a>
                             </Link>
