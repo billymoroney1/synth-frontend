@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import MainOnOff from '../components/Synth/MainOnOff'
-import Trigger from '../components/Synth/Trigger'
-import EffectControl from '../components/Synth/EffectControl'
-import Dropdown from '../components/Synth/Dropdown'
-import Envelope from '../components/Synth/Envelope'
-import SavePreset from '../components/Synth/SavePreset'
+import MainOnOff from '../../components/Synth/MainOnOff'
+import Trigger from '../../components/Synth/Trigger'
+import EffectControl from '../../components/Synth/EffectControl'
+import Dropdown from '../../components/Synth/Dropdown'
+import Envelope from '../../components/Synth/Envelope'
+import SavePreset from '../../components/Synth/SavePreset'
 
-import Layout from '../components/Layout'
+//nextjs router
+import { useRouter } from 'next/router'
+
+//preset service
+import { getOnePreset } from '../../services/preset.service'
+
+import Layout from '../../components/Layout'
 
 export default function Synth(props) {
 
+    const router = useRouter()
+    const { pid } = router.query
+    
+    //if waiting for api response
+    const [loading, setLoading] = useState(true)
+    //manage this state to flip between create and edit UI
+    const [edit, setEdit] = useState(false)
     //keep track of effects to be passed to the synth(trigger)
     const [synth, setSynth] = useState([])
     //keep track of waveform
@@ -21,6 +34,35 @@ export default function Synth(props) {
     //full preset state
     const [preset, setPreset] = useState([])
 
+    //hook to query for single preset
+    useEffect(async () => {
+        //ping API for preset data if query param is something other than 0
+        if(pid !== 0){
+            await getOnePreset(pid).then((response) => {
+                const data = response.data[0]
+                console.log('DATA: ', data.options)
+                console.log('LOADING: ', loading)
+                setWave(data.options[0])
+                setEnvelope(data.options[3])
+                setFilter(data.options[1])
+                setSynth(data.options[2])
+                setLoading(false)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+        //need to set state
+        setEdit(true)
+        //how can i rerender?
+
+        //also need to pass state to the buttons
+    }, [])
+
+    useEffect(() => {
+        console.log(wave)
+        setLoading(false)
+    }, [wave])
+
     //use drop down menu to change waveform
     const optionSelect = (e) => {
         if (e.target.name === 'waveType'){
@@ -28,7 +70,6 @@ export default function Synth(props) {
         } else if (e.target.name === 'filterType') {
             setFilter(e.target.value)
         }
-        console.log(e.target.value)
     }
 
     //helper function to pass down into effects
@@ -50,7 +91,6 @@ export default function Synth(props) {
         fullPreset.push(filter)
         fullPreset.push(synth)
         fullPreset.push(envelope)
-        console.table(fullPreset)
         setPreset([...fullPreset])
     }, [envelope, wave, filter, synth])
 
@@ -76,10 +116,11 @@ export default function Synth(props) {
 
     return (
         <Layout>
+        {!loading && (
             <div className='flex w-3/5 m-auto flex-col space-y-12'>
                 <div className='h-42 flex justify-around content-center'>
                     <Trigger synth={synth} wave={wave} envelope={envelope} filter={filter} />
-                    <Dropdown name='waveType' options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
+                    <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
                     <Envelope adsrChange={adsrChange} env={envelope} />
                     <MainOnOff />
                     {/* <Canvas /> */}
@@ -87,12 +128,13 @@ export default function Synth(props) {
                 <div className='flex justify-around'>
                     <EffectControl name={'reverb'} add={effectAdd} remove={effectRemove} />
                     <EffectControl name={'filter'} add={effectAdd} remove={effectRemove} />
-                    <Dropdown name='filterType' options={['lowpass', 'highpass']} handleChange={optionSelect} />
+                    <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
                     <EffectControl name={'phaser'} add={effectAdd} remove={effectRemove} />
                     <EffectControl name={'delay'} add={effectAdd} remove={effectRemove} />
                 </div>
                 <SavePreset preset={preset} />
             </div>
+        )}
         </Layout>
     )
 }

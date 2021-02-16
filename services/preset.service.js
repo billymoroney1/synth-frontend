@@ -34,3 +34,9 @@ export const getPresets = () => {
     .get(API_URL+"all")
 }
 
+//GET - single preset
+export const getOnePreset = (id) => {
+    return axios
+    .get(API_URL+id)
+}
+

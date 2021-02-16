@@ -50,7 +50,7 @@ export default function Layout(props) {
                     )}
                     {currentUser && (
                         <li>
-                            <Link href='/Synth'>
+                            <Link href='/Synth/0'>
                                 <a>Synth</a>
                             </Link>
                         </li>

@@ -17,7 +17,7 @@ export default function WaveSelect(props) {
         // </div>
 
         <div>
-            <select name={props.name} onChange={props.handleChange}>
+            <select name={props.name} value={props.value} onChange={props.handleChange}>
                 {list}
             </select>
         </div>
