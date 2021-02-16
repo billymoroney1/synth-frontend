@@ -15,6 +15,10 @@ bpm (maybe making a number box to also pair with sliders?)
 
 maybe handdraw wireframe?
 
+NEED A SPINNER
+NEED TO REQUIRE A NAME BEFORE SAVING PRESET
+NEED TO TURN AUDIO OFF IF YOU EVER LEAVE PAGE
+
 sliders to effects?
 
 how implement poly for chords?

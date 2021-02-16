@@ -1,5 +1,8 @@
+const { ThumbDown } = require("heroicons-react")
 
 exports.patch = (Tone, preset, sequence = null) => {
+
+    Tone.start()
 
     // current preset object structure:
     // wave
@@ -24,18 +27,6 @@ exports.patch = (Tone, preset, sequence = null) => {
             release: envelope[3]
         }
     })
-
-    const wf = new Tone.Waveform(16)
-
-    synth.connect(wf)
-
-    let myTimer = setInterval(() => {
-        console.log(wf.getValue())
-    }, 100)
-
-    setTimeout(() => {
-        clearInterval(myTimer)
-    }, 2000)
 
     //check which effects are on, if no effects are on, connect synth toDestination
     let noEffects = true
@@ -79,6 +70,29 @@ exports.patch = (Tone, preset, sequence = null) => {
         synth.connect(Tone.getDestination())
     }
 
-    synth.triggerAttackRelease("D2", "8n")
+    if (sequence) {
+        const loop = new Tone.Loop((time) => {
+            synth.triggerAttackRelease("D2", "8n")
+        }, "4n").start(0)
+    }
+
+    if (!sequence) {
+        synth.triggerAttackRelease("D2", "8n")
+    }
+
 }
+
+//GET WAVEFORM DATA
+// const wf = new Tone.Waveform(16)
+
+// synth.connect(wf)
+
+// let myTimer = setInterval(() => {
+//     console.log(wf.getValue())
+// }, 100)
+
+// setTimeout(() => {
+//     clearInterval(myTimer)
+// }, 2000)
+
 

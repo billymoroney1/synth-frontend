@@ -23,7 +23,9 @@ export default function Preset(props) {
         {visible && (
             <div>
                 <span>{props.name}</span>
-                
+                <Link href={`/Player/${props.id}`}>
+                    <a>Play</a>
+                </Link>
                 <Link href={`/Synth/${props.id}`}>
                     <a>Edit</a>
                 </Link>
