@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function WaveSelect(props) {
+export default function Dropdown(props) {
 
     const list = props.options.map((option, key) => {
             return <option key={key} value={option}>{option}</option>
