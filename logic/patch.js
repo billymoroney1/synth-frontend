@@ -71,9 +71,26 @@ exports.patch = (Tone, preset, sequence = null) => {
     }
 
     if (sequence) {
-        const loop = new Tone.Loop((time) => {
-            synth.triggerAttackRelease("D2", "8n")
-        }, "4n").start(0)
+        if (sequence === '1'){
+            const loop = new Tone.Loop((time) => {
+                synth.triggerAttackRelease("D2", "8n")
+            }, "4n").start(0)
+        }
+        else if (sequence === '2'){
+            const loop = new Tone.Loop((time) => {
+                synth.triggerAttackRelease("F2", "8n")
+            }, "4n").start(0)
+        }
+        else if (sequence === '3'){
+            const loop = new Tone.Loop((time) => {
+                synth.triggerAttackRelease("A2", "8n")
+            }, "4n").start(0)
+        }
+        else if (sequence === '4'){
+            const loop = new Tone.Loop((time) => {
+                synth.triggerAttackRelease("Bb2", "8n")
+            }, "4n").start(0)
+        }
     }
 
     if (!sequence) {

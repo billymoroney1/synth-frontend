@@ -37,9 +37,10 @@ export default function Player(props) {
         })
     }, [])
 
-    const play = () => {
-        console.log('PRESET: ', preset.options)
-        patch.patch(Tone, preset)
+    const play = (e) => {
+        console.log('id: ', e.target.id)
+        patch.patch(Tone, preset, e.target.id)
+        Tone.Transport.start()
     }
 
     // const on = () => {
@@ -55,7 +56,13 @@ export default function Player(props) {
         <Layout>
             {!loading && (
                 <div>
-                    <button onClick={play}>Play</button>
+                    {/* <div>
+                        <button onClick={play}>Play</button>
+                    </div> */}
+                    <div id='1' onClick={play}>1</div>
+                    <div id='2' onClick={play}>2</div>
+                    <div id='3' onClick={play}>3</div>
+                    <div id='4' onClick={play}>4</div>
                 </div>
             )}
         </Layout>

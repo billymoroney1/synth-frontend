@@ -6,6 +6,7 @@ import Dropdown from '../../components/Synth/Dropdown'
 import Envelope from '../../components/Synth/Envelope'
 import SavePreset from '../../components/Synth/SavePreset'
 import EditPreset from '../../components/Synth/EditPreset'
+import EffectPanel from '../../components/Synth/EffectPanel'
 
 //nextjs router
 import { useRouter } from 'next/router'
@@ -118,9 +119,9 @@ export default function Synth(props) {
     }
 
     //populate effect controls
-    const effectControls = effects.map((e, key) => {
-        return <EffectControl name={e.name} status={e.status} values={e.values} onOff={effectOnOff} />
-    })
+    // const effectControls = effects.map((e, key) => {
+    //     return <EffectControl name={e.name} status={e.status} values={e.values} onOff={effectOnOff} />
+    // })
 
     return (
         <Layout>
@@ -134,8 +135,11 @@ export default function Synth(props) {
                     {/* <Canvas /> */}
                 </div>
                 <div className='flex justify-around'>
-                    {effectControls}
+                    {/* {effectControls} */}
                     <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
+                </div>
+                <div>
+                    <EffectPanel effects={effects} onOff={effectOnOff} />
                 </div>
             {!edit && (
                 <SavePreset preset={preset} />

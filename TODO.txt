@@ -1,40 +1,26 @@
-MVP:
-more instruments
-more effects
-few sequences to choose from style
+STYLING/CONTENT
+home page - guide
+login/register
+synth
+    -sliders
+    -picture of waveforms & filter types
+    -page layout
+profile
+    -cards, populate with preset details
+    -button, test tone
 
-EXTRA:
-multiple instruments in paralell
-
-add ability to add instruments
-add ability run two instruments in parallel
-add more effects, when reach a certain point, access via dropdown
-
-play button for global transport
-bpm (maybe making a number box to also pair with sliders?)
-
-maybe handdraw wireframe?
-
-NEED A SPINNER
-NEED TO REQUIRE A NAME BEFORE SAVING PRESET
-NEED TO TURN AUDIO OFF IF YOU EVER LEAVE PAGE
-
-sliders to effects?
-
-how implement poly for chords?
-
-how and where could i use lfos?
-
-implement cards for profile to view presets and some details
-
-add 4 x 4 squares to player, each square is a sequence
-(can i do global transport but ability to run several sequences at once?)
-
-can we do like ability to pick preset per row?
-
-change pitch of a sequence?
-
-maybe get some pictures of the various waveforms to show on synth page? as well as pictures of high and lowpass filters?
+FUNCTIONALITY
+presets not available to all users
+synth
+    -ability to choose from multiple instruments
+    -can you hide effects behind a parent component and select with dropdown
+    -lfos?
+    -validate before saving because name is required
+    -being able to pick a pitch
+        -pick a pitch and a chord
+            -simple sequences
+    EXTRA synth
+        -keep track of order of enabled effects and reflect that in patch function
 
 
 -----------
