@@ -7,9 +7,14 @@ export default function EffectControl(props) {
     const [name, setName] = useState(props.name)
 
     useEffect(() => {
-        setActive(props.status)
+        console.log(props.name, props.status)
         setName(props.name)
+        setActive(props.status)
     }, [props])
+
+    useEffect(() => {
+        console.log(status, name)
+    }, [active, name])
     
     //toggle effect on off
     const handleClick = (e) => {
