@@ -130,30 +130,52 @@ export default function Synth(props) {
     return (
         <Layout>
         {!loading && (
-            <div className='flex w-3/5 m-auto flex-col space-y-12'>
-                <div className='h-42 flex justify-around content-center'>
-                    <Trigger effects={effects} wave={wave} envelope={envelope} filter={filter} />
-                    <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
-                    <Envelope adsrChange={adsrChange} env={envelope} />
-                    <MainOnOff />
-                    {/* <Canvas /> */}
+            <div>
+                <div className='flex justify-space-between justify-center m-16'>
+                    <div className='flex-grow'>
+                        <span>Instrument</span>
+                        <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
+                    </div>
+                    <div className='flex-grow'>
+                        <span>Envelope</span>
+                        <Envelope adsrChange={adsrChange} env={envelope} />
+                    </div>
+                    <div className='flex-grow'>
+                        <span>Filter</span>
+                        <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
+                    </div>
                 </div>
-                <div className='flex justify-around'>
-                    {/* {effectControls} */}
-                    <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
+                
+                <div className='flex justify-center'>
+                    <div className='flex flex-col space-y-6'>
+                        <span className='text-center'>Effects</span>
+                        <div className='flex space-x-4 justify-center'>
+                            <EffectControl name='reverb' onOff={effectOnOff} />
+                            <EffectControl name='filter' onOff={effectOnOff} />
+                            <EffectControl name='compressor' onOff={effectOnOff} />
+                            <EffectControl name='phasor' onOff={effectOnOff} />
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <EffectControl name='reverb' onOff={effectOnOff} />
-                    <EffectControl name='filter' onOff={effectOnOff} />
-                    <EffectControl name='compressor' onOff={effectOnOff} />
-                    <EffectControl name='phasor' onOff={effectOnOff} />
+                <div className='flex justify-center space-x-32'>
+                    <div>
+                        <div>
+                            <span>Play</span>
+                            <Trigger effects={effects} wave={wave} envelope={envelope} filter={filter} />
+                        </div>
+                        <div>
+                            <span>Initialize Tone.js</span>
+                            <MainOnOff />
+                        </div>
+                    </div>
+                    
+                    {!edit && (
+                        <SavePreset preset={preset} />
+                    )}
+                    {edit && (
+                        <EditPreset preset={preset} id={id} name={name}/>
+                    )}
                 </div>
-            {!edit && (
-                <SavePreset preset={preset} />
-            )}
-            {edit && (
-                <EditPreset preset={preset} id={id} name={name}/>
-            )}
                 
             </div>
         )}

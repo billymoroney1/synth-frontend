@@ -14,18 +14,7 @@ export default function Envelope(props) {
     const release = props.env[3]
 
     return (
-        <div>
-            <div>Envelope</div>
-            {/* <form>
-                <label for='attack'>Attack</label>
-                <input type='number' id='attack' name='attack' min='0' max='5' step="0.01" />
-                <label for='decay'>decay</label>
-                <input type='number' id='decay' name='decay' min='0' max='5' step="0.01" />
-                <label for='sustain'>sustain</label>
-                <input type='number' id='sustain' name='sustain' min='0' max='5' step="0.01" />
-                <label for='release'>release</label>
-                <input type='number' id='release' name='release' min='0' max='5' step="0.01" />
-            </form> */}
+        <div className='flex flex-col'>
             <label htmlFor='attack'>attack</label>
             <input onChange={handleChange} type='range' value={attack} id='attack' name='attack' min='0' max='2' step='0.1' />
             <label htmlFor='decay'>decay</label>

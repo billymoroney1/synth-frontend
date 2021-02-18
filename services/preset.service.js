@@ -5,11 +5,13 @@ const API_URL='http://synth-backend.herokuapp.com/api/presets/'
 import {setItem, getItem, removeItem} from '../utilities/localStorage.utilities'
 
 //POST - create preset
-export const createPreset = (name, options) => {
+export const createPreset = (user, name, options) => {
+    const id = getItem('user').id
     return axios
     .post(API_URL+"preset", {
         name,
-        options
+        options,
+        id
     })
 }
 
