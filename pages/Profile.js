@@ -9,22 +9,30 @@ import { getPresets } from '../services/preset.service'
 
 //components
 import Preset from '../components/Profile/Preset'
- 
 
+import { getCurrentUser } from '../services/auth.service'
 
+import { useRouter } from 'next/router'
 
 export default function Profile() {
 
     const [presets, setPresets] = useState([])
     const [loading, setLoading] = useState(true)
 
+    const router = useRouter()
+
     useEffect(() => {
-        getPresets().then((response) => {
-            setPresets([...response.data.presets])
-            setLoading(false)
-        }).catch(err => {
-            console.log(err)
-        })
+        const user = getCurrentUser()
+        if (!user){
+            router.push('/Login')
+        } else {
+            getPresets().then((response) => {
+                setPresets([...response.data.presets])
+                setLoading(false)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
     }, [])
 
     const viewPresets = presets.map((p, key) => {
