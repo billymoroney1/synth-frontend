@@ -19,25 +19,33 @@ export default function Layout(props) {
 
     return (
         <div>
-            <nav className='flex w-full bg-gray-600'>
-                <ul className='flex w-full space-x-12 object-right m-6'>
+            <nav className='flex w-full shadow justify-center'>
+                <ul className='flex justify-center w-full space-x-12'>
                     <li>
-                        <Link href='/'>
-                            <a>Home</a>
-                        </Link>
+                        <button className='hover:border-opacity-100 border-b-4 border-opacity-0 border-blue-300 p-3'>
+                            <Link href='/'>
+                                <a className='hover:text-blue-700'>Home</a>
+                            </Link>
+                        </button>
                     </li>
                     <li>
-                        <Link href='/Profile'>
-                            <a>Profile</a>
-                        </Link>
+                        <button className='hover:border-opacity-100 border-b-4 border-opacity-0 border-blue-300 p-3'>
+                            <Link href='/Profile'>
+                                <a className='hover:text-blue-700'>Profile</a>
+                            </Link>
+                        </button>
                     </li>
                     <li>
-                        <Link href='/Synth/0'>
-                            <a>Synth</a>
-                        </Link>
+                        <button className='hover:border-opacity-100 border-b-4 border-opacity-0 border-blue-300 p-3'>
+                            <Link href='/Synth/0'>
+                                <a className='hover:text-blue-700'>Synth</a>
+                            </Link>
+                        </button>
                     </li>
-                    <li>
-                        <a onClick={logout}>Logout</a>
+                    <li className='hover:border-opacity-100 border-b-4 border-opacity-0 border-red-500 p-3'>
+                        <button>
+                            <a className='hover:text-red-700' onClick={logout}>Logout</a>
+                        </button>
                     </li>
                 </ul>
             </nav>
