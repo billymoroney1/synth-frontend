@@ -41,7 +41,6 @@ export default function Profile() {
                 <div className='grid grid-flow-row grid-cols-3 auto-rows-auto justify-items-center'>
                     {viewPresets}
                 </div>
-                
             </div>
         )}
         </Layout>
