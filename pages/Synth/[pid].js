@@ -129,6 +129,13 @@ export default function Synth(props) {
 
     return (
         <Layout>
+        {loading && (
+            <div className='flex h-screen justify-center items-center'>
+                <div className='m-auto'>
+                    <div className='animate-spin w-36 h-36 border-8 border-black'></div>
+                </div>
+            </div>
+        )}
         {!loading && (
             <div>
                 <div className='flex justify-space-between justify-center m-16'>
