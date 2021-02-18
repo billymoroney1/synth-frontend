@@ -35,11 +35,14 @@ export default function Profile() {
     return (
         <Layout>
         {!loading && (
-            <div className={styles.container}>
-                Profile
-                <ul>
+            <div>
+                <div>
+                   Profile 
+                </div>
+                <div className='grid grid-flow-row grid-cols-3 auto-rows-auto justify-items-center'>
                     {viewPresets}
-                </ul>
+                </div>
+                
             </div>
         )}
         </Layout>

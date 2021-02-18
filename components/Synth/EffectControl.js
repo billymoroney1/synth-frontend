@@ -5,20 +5,19 @@ export default function EffectControl(props) {
 
     const [active, setActive] = useState(props.status)
     const [name, setName] = useState(props.name)
+    
+    //CODE FOR ATTEMPTING TO USE A DROP DOWN MENU TO CHANGE WHICH CONTROL WAS VISIBLE
 
-    useEffect(() => {
-        console.log(props.name, props.status)
-        setName(props.name)
-        setActive(props.status)
-    }, [props])
-
-    useEffect(() => {
-        console.log(status, name)
-    }, [active, name])
+    // useEffect(() => {
+    //     console.log(props.name, props.status)
+    //     setName(props.name)
+    //     setActive(props.status)
+    // }, [props])
     
     //toggle effect on off
     const handleClick = (e) => {
-        props.onOff(props.name)
+        props.onOff(name)
+        setActive(active ? false : true)
     }
     
     //toggles classes for style
