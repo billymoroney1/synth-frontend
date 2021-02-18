@@ -107,7 +107,6 @@ export default function Synth(props) {
         fullPreset.push(effects)
         fullPreset.push(envelope)
         setPreset([...fullPreset])
-        console.log(effects)
     }, [envelope, wave, filter, effects])
 
     //******** */
@@ -130,10 +129,11 @@ export default function Synth(props) {
         setEnvelope([...env])
     }
 
-    //populate effect controls
-    // const effectControls = effects.map((e, key) => {
-    //     return <EffectControl name={e.name} status={e.status} values={e.values} onOff={effectOnOff} />
-    // })
+    // populate effect controls
+    const effectControls = effects.map((e, key) => {
+        console.log(e)
+        return <EffectControl name={e.name} status={e.status} values={e.values} onOff={effectOnOff} />
+    })
 
     return (
         <Layout>
@@ -165,10 +165,11 @@ export default function Synth(props) {
                     <div className='flex flex-col space-y-6'>
                         <span className='text-center'>Effects</span>
                         <div className='flex space-x-4 justify-center'>
-                            <EffectControl name='reverb' onOff={effectOnOff} />
+                            {effectControls}
+                            {/* <EffectControl name='reverb' status={effects[0].status} onOff={effectOnOff} />
                             <EffectControl name='filter' onOff={effectOnOff} />
                             <EffectControl name='compressor' onOff={effectOnOff} />
-                            <EffectControl name='phasor' onOff={effectOnOff} />
+                            <EffectControl name='phasor' onOff={effectOnOff} /> */}
                         </div>
                     </div>
                 </div>

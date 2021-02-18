@@ -3,8 +3,12 @@ import React, { useState, useEffect } from 'react'
 
 export default function EffectControl(props) {
 
-    const [active, setActive] = useState(props.status)
+    const [active, setActive] = useState(false)
     const [name, setName] = useState(props.name)
+
+    useEffect(() => {
+        setActive(props.status)
+    }, [props])
     
     //CODE FOR ATTEMPTING TO USE A DROP DOWN MENU TO CHANGE WHICH CONTROL WAS VISIBLE
 
