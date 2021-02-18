@@ -8,22 +8,6 @@ import { useRouter } from 'next/router'
 
 
 export default function Layout(props) {
-    const [currentUser, setCurrentUser] = useState(undefined)
-    const router = useRouter()
-
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        const user = getCurrentUser()
-
-        if (user) {
-            setCurrentUser(user)
-        }
-    }, [])
-
-    useEffect(() => {
-        setLoading(false)
-    }, [currentUser])
 
     //logout
     const logout = () => {
@@ -40,38 +24,19 @@ export default function Layout(props) {
                             <a>Home</a>
                         </Link>
                     </li>
-                    {currentUser && (
-                        <li>
-                            <Link href='/Profile'>
-                                <a>Profile</a>
-                            </Link>
-                        </li>
-                    )}
-                    {currentUser && (
-                        <li>
-                            <Link href='/Synth/0'>
-                                <a>Synth</a>
-                            </Link>
-                        </li>
-                    )}
-                    {currentUser ? (
-                        <li>
-                            <a onClick={logout}>Logout</a>
-                        </li>
-                    ) : (
-                        <div className='flex'>
-                            <li>
-                                <Link href='/Login'>
-                                    Login
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href='/Register'>
-                                    Register
-                                </Link>
-                            </li>
-                        </div>
-                    )}
+                    <li>
+                        <Link href='/Profile'>
+                            <a>Profile</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='/Synth/0'>
+                            <a>Synth</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <a onClick={logout}>Logout</a>
+                    </li>
                 </ul>
             </nav>
             <div>{props.children}</div>

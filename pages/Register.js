@@ -124,7 +124,6 @@ export default function Register(props) {
     }
 
     return (
-        <Layout>
             <div className='{styles.container} max-w-md w-full mx-auto mt-4 bg-white p-8 border border-gray-300'>
                 <div className='text-3xl font-bold text-gray-900 text-center mb-8'>Sign Up</div>
                 <Form onSubmit={handleRegister} ref={form} className='space-y-3'>
@@ -169,7 +168,7 @@ export default function Register(props) {
 
                     <CheckButton style={{ display: 'none'}} ref={checkBtn} />
                 </Form>
+                <p>Have an account? <a href='/Login'>Login.</a></p>
             </div>
-        </Layout>
     )
 }

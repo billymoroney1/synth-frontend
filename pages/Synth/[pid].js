@@ -15,6 +15,9 @@ import { useRouter } from 'next/router'
 //preset service
 import { getOnePreset } from '../../services/preset.service'
 
+import { getCurrentUser } from '../../services/auth.service'
+
+
 import Layout from '../../components/Layout'
 
 export default function Synth(props) {
@@ -46,6 +49,11 @@ export default function Synth(props) {
 
     //hook to query for single preset
     useEffect(async () => {
+        //check if there is a user, if not, send to login page
+        const user = getCurrentUser()
+        if (!user){
+            router.push('/Login')
+        }
         //ping API for preset data if query param is something other than 0
         if(pid !== '0'){
             await getOnePreset(pid).then((response) => {
