@@ -145,8 +145,8 @@ export default function Synth(props) {
             </div>
         )}
         {!loading && (
-            <div>
-                <div className='flex border border-black justify-space-between justify-center m-16'>
+            <div className='flex flex-col space-y-12 m-8'>
+                <div className='flex border border-black justify-space-between justify-center m-4'>
                     <div className='flex-grow border border-black'>
                         <span>Instrument</span>
                         <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
@@ -161,7 +161,7 @@ export default function Synth(props) {
                     </div>
                 </div>
                 
-                <div className='flex justify-center m-6 border border-black'>
+                <div className='flex justify-center border border-black m-4'>
                     <div className='flex flex-col space-y-6'>
                         <span className='text-center'>Effects</span>
                         <div className='flex space-x-4 justify-center'>
@@ -173,7 +173,7 @@ export default function Synth(props) {
                     </div>
                 </div>
                 <div>
-                    <div className='flex justify-center'>
+                    <div className='flex border border-black justify-space-between justify-center m-4'>
                         <div className='flex-grow border border-black'>
                             <span className='text-center'>Play</span>
                             <Trigger effects={effects} wave={wave} envelope={envelope} filter={filter} />
