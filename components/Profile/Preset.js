@@ -8,7 +8,6 @@ export default function Preset(props) {
 
     const [visible, setVisible] = useState(true)
 
-    
 
     const handleDelete = () => {
         console.log('delete')
@@ -16,22 +15,22 @@ export default function Preset(props) {
         deletePreset(props.id)
     }
 
-
-
     return (
         <div>
         {visible && (
             <div>
-                <span>{props.name}</span>
-                <Link href={`/Player/${props.id}`}>
-                    <a>Play</a>
-                </Link>
-                <Link href={`/Synth/${props.id}`}>
-                    <a>Edit</a>
-                </Link>
-                <form onSubmit={handleDelete}>
-                    <button type='submit'>Delete</button>
-                </form>
+                <div className='rounded overflow-hidden shadow-lg'>
+                    <span>Name of preset: {props.name}</span><br/>
+                    <Link href={`/Player/ ${props.id}`}>
+                        <button><a>Play</a></button>
+                    </Link>
+                    <Link href={`/Synth/${props.id}`}>
+                        <a>Edit</a>
+                    </Link>
+                    <form onSubmit={handleDelete}>
+                        <button type='submit'>Delete</button>
+                    </form>
+                </div> 
             </div>
         )}
         </div>
