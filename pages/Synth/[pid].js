@@ -146,28 +146,22 @@ export default function Synth(props) {
         )}
         {!loading && (
             <div>
-                {!edit && (
-                    <SavePreset preset={preset} />
-                )}
-                {edit && (
-                    <EditPreset preset={preset} id={id} name={name}/>
-                )}
-                <div className='flex justify-space-between justify-center m-16'>
-                    <div className='flex-grow'>
+                <div className='flex border border-black justify-space-between justify-center m-16'>
+                    <div className='flex-grow border border-black'>
                         <span>Instrument</span>
                         <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
                     </div>
-                    <div className='flex-grow'>
+                    <div className='flex-grow border border-black'>
                         <span>Envelope</span>
                         <Envelope adsrChange={adsrChange} env={envelope} />
                     </div>
-                    <div className='flex-grow'>
+                    <div className='flex-grow border border-black'>
                         <span>Filter</span>
                         <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
                     </div>
                 </div>
                 
-                <div className='flex justify-center'>
+                <div className='flex justify-center m-6 border border-black'>
                     <div className='flex flex-col space-y-6'>
                         <span className='text-center'>Effects</span>
                         <div className='flex space-x-4 justify-center'>
@@ -178,15 +172,23 @@ export default function Synth(props) {
                         </div>
                     </div>
                 </div>
-                <div className='flex justify-center space-x-32'>
-                    <div>
-                        <div>
-                            <span>Play</span>
+                <div>
+                    <div className='flex justify-center'>
+                        <div className='flex-grow border border-black'>
+                            <span className='text-center'>Play</span>
                             <Trigger effects={effects} wave={wave} envelope={envelope} filter={filter} />
                         </div>
-                        <div>
+                        <div className='flex-grow border border-black'>
                             <span>Initialize Tone.js</span>
                             <MainOnOff />
+                        </div>
+                        <div className='flex-grow border border-black'>
+                            {!edit && (
+                            <SavePreset preset={preset} />
+                            )}
+                            {edit && (
+                                <EditPreset preset={preset} id={id} name={name}/>
+                            )}
                         </div>
                     </div>
                 </div>
