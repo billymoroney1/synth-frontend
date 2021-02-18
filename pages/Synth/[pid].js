@@ -139,7 +139,8 @@ export default function Synth(props) {
                     <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
                 </div>
                 <div>
-                    <EffectPanel effects={effects} onOff={effectOnOff} />
+                    <EffectControl name='reverb' onOff={effectOnOff} />
+                    <EffectControl name='distortion' onOff={effectOnOff} />
                 </div>
             {!edit && (
                 <SavePreset preset={preset} />
