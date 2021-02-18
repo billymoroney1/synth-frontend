@@ -19,7 +19,7 @@ export default function Preset(props) {
         <div className='border border w-64 h-64 m-12 rounded overflow-hidden shadow-lg'>
         {visible && (
             <div>
-                <span>Name of preset: {props.name}</span><br/>
+                <span>{props.name}</span><br/>
                 <Link href={`/Player/ ${props.id}`}>
                     <button className='inline-block px-8 py-2 mb-4 mt-8 ml-20 text-xs font-medium leading-6 center text-center text-white uppercase transition bg-blue-500 rounded-full shadow ripple hover:shadow-lg hover:bg-pink-600 focus:outline-none'><a>Play</a></button>
                 </Link><br/>
