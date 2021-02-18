@@ -13,6 +13,7 @@ export default function SavePreset(props) {
 
     const onChangeName = (e) => {
         setName(e.target.value)
+        setMessage("")
     }
 
     //need to gather state from Synth.js component
@@ -34,7 +35,7 @@ export default function SavePreset(props) {
     return (
         <div>
             <form className='flex space-x-6' onSubmit={handleSubmit}>
-                <input className='placeholder-red-300 border rounded border-gray-600 text-4xl' type='text' id='name' name='name' placeholder='Name...' value={name} onChange={onChangeName} />
+                <input className='placeholder-blue-500 border rounded border-gray-600 text-4xl' type='text' id='name' name='name' placeholder='Name...' value={name} onChange={onChangeName} />
                 <input className='border rounded text-xl' type='submit' value="Create" />
             </form>
 
