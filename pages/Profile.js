@@ -20,8 +20,7 @@ export default function Profile() {
 
     useEffect(() => {
         getPresets().then((response) => {
-            setPresets([...response.data])
-            console.log(response.data)
+            setPresets([...response.data.presets])
             setLoading(false)
         }).catch(err => {
             console.log(err)
