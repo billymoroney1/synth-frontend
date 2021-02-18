@@ -138,6 +138,12 @@ export default function Synth(props) {
         )}
         {!loading && (
             <div>
+                {!edit && (
+                    <SavePreset preset={preset} />
+                )}
+                {edit && (
+                    <EditPreset preset={preset} id={id} name={name}/>
+                )}
                 <div className='flex justify-space-between justify-center m-16'>
                     <div className='flex-grow'>
                         <span>Instrument</span>
@@ -175,13 +181,6 @@ export default function Synth(props) {
                             <MainOnOff />
                         </div>
                     </div>
-                    
-                    {!edit && (
-                        <SavePreset preset={preset} />
-                    )}
-                    {edit && (
-                        <EditPreset preset={preset} id={id} name={name}/>
-                    )}
                 </div>
                 
             </div>

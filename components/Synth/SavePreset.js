@@ -18,11 +18,14 @@ export default function SavePreset(props) {
     //need to gather state from Synth.js component
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(props.preset)
-        createPreset(name, props.preset).then(
-            (response) => {
-                setMessage(response.data.message)
-            }
+        if (name === ""){
+            setMessage('Must provide a name!')
+        } else (
+            createPreset(name, props.preset).then(
+                (response) => {
+                    setMessage(response.data.message)
+                }
+            )
         )
     }
 
@@ -30,10 +33,9 @@ export default function SavePreset(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label for='name'>Name</label>
-                <input type='text' id='name' name='name' value={name} onChange={onChangeName} />
-                <input type='submit' value="Create" />
+            <form className='flex space-x-6' onSubmit={handleSubmit}>
+                <input className='placeholder-red-300 border rounded border-gray-600 text-4xl' type='text' id='name' name='name' placeholder='Name...' value={name} onChange={onChangeName} />
+                <input className='border rounded text-xl' type='submit' value="Create" />
             </form>
 
             {message && (

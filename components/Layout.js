@@ -11,6 +11,8 @@ export default function Layout(props) {
     const [currentUser, setCurrentUser] = useState(undefined)
     const router = useRouter()
 
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
         const user = getCurrentUser()
 
@@ -18,6 +20,10 @@ export default function Layout(props) {
             setCurrentUser(user)
         }
     }, [])
+
+    useEffect(() => {
+        setLoading(false)
+    }, [currentUser])
 
     //logout
     const logout = () => {
@@ -53,17 +59,17 @@ export default function Layout(props) {
                             <a onClick={logout}>Logout</a>
                         </li>
                     ) : (
-                        <div>
-                        <li>
-                            <Link href='/Login'>
-                                Login
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href='/Register'>
-                                Register
-                            </Link>
-                        </li>
+                        <div className='flex'>
+                            <li>
+                                <Link href='/Login'>
+                                    Login
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href='/Register'>
+                                    Register
+                                </Link>
+                            </li>
                         </div>
                     )}
                 </ul>
