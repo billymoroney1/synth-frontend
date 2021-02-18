@@ -35,7 +35,7 @@ export default function Profile() {
         <Layout>
         {!loading && (
             <div>
-                <div className='text-center mt-12 mb-12 text-4xl'>
+                <div className='text-center mt-12 mb-12 text-4xl bg-gray-300'>
                    Presets 
                 </div>
                 <div className='grid grid-flow-row grid-cols-3 auto-rows-auto justify-items-center'>
