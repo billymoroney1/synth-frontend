@@ -5,8 +5,9 @@ export default function EffectControl(props) {
 
     const [active, setActive] = useState(props.status)
     const [name, setName] = useState(props.name)
-
+    
     //CODE FOR ATTEMPTING TO USE A DROP DOWN MENU TO CHANGE WHICH CONTROL WAS VISIBLE
+
     // useEffect(() => {
     //     console.log(props.name, props.status)
     //     setName(props.name)

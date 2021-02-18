@@ -19,7 +19,7 @@ export default function Preset(props) {
 
 
     return (
-        <div>
+        <div className='border border-black w-64 h-64 m-12'>
         {visible && (
             <div>
                 <span>{props.name}</span>

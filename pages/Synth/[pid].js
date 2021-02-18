@@ -6,7 +6,8 @@ import Dropdown from '../../components/Synth/Dropdown'
 import Envelope from '../../components/Synth/Envelope'
 import SavePreset from '../../components/Synth/SavePreset'
 import EditPreset from '../../components/Synth/EditPreset'
-import EffectPanel from '../../components/Synth/EffectPanel'
+import EffectParams from '../../components/Synth/EffectParams'
+// import EffectPanel from '../../components/Synth/EffectPanel'
 
 //nextjs router
 import { useRouter } from 'next/router'
@@ -39,6 +40,9 @@ export default function Synth(props) {
     const [envelope, setEnvelope] = useState([0.1, 0.2, 1.0, 0.8])
     //full preset state
     const [preset, setPreset] = useState([])
+
+    // would use individual states like this to manage an effect's parameters
+    // const [reverb, setReverb] = useState([])
 
     //hook to query for single preset
     useEffect(async () => {
@@ -140,7 +144,9 @@ export default function Synth(props) {
                 </div>
                 <div>
                     <EffectControl name='reverb' onOff={effectOnOff} />
-                    <EffectControl name='distortion' onOff={effectOnOff} />
+                    <EffectControl name='filter' onOff={effectOnOff} />
+                    <EffectControl name='compressor' onOff={effectOnOff} />
+                    <EffectControl name='phasor' onOff={effectOnOff} />
                 </div>
             {!edit && (
                 <SavePreset preset={preset} />
