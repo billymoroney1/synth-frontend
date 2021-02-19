@@ -71,7 +71,7 @@ export default function Trigger(props) {
                     synth.connect(filter)
                 }  
         
-                if (props.effects[i].name === 'phasor'){
+                if (props.effects[i].name === 'phaser'){
                     const phaser = new Tone.Phaser({
                     "frequency" : 15,
                     "octaves" : 6,
