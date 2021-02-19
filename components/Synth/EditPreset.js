@@ -25,10 +25,9 @@ export default function EditPreset(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label for='name'>Name</label>
-                <input type='text' id='name' name='name' value={name} onChange={onChangeName} />
-                <input type='submit' value="Save Changes" />
+            <form className='flex space-x-6' onSubmit={handleSubmit}>
+                <input className='name-text text-blue-400' type='text' id='name' name='name' value={name} onChange={onChangeName} />
+                <input className='name-submit' type='submit' value="Save Changes" />
             </form>
 
             {message && (
