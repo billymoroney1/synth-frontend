@@ -76,7 +76,7 @@ exports.patch = (Tone, preset, sequence = null) => {
         synth.connect(Tone.getDestination())
     }
 
-    synth.triggerAttackRelease(`${pitch}`, "8n")
+    synth.triggerAttackRelease(`${pitch}`, "4n")
 
     // if (sequence) {
     //     if (sequence === '1'){
