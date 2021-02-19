@@ -7,6 +7,7 @@ import Envelope from '../../components/Synth/Envelope'
 import SavePreset from '../../components/Synth/SavePreset'
 import EditPreset from '../../components/Synth/EditPreset'
 import EffectParams from '../../components/Synth/EffectParams'
+import PitchControl from '../../components/Synth/PitchControl'
 // import EffectPanel from '../../components/Synth/EffectPanel'
 
 //nextjs router
@@ -41,6 +42,8 @@ export default function Synth(props) {
     const [filter, setFilter] = useState("lowpass")
     //manage envelope
     const [envelope, setEnvelope] = useState([0.1, 0.2, 1.0, 0.8])
+    //track pitch
+    const [pitch, setPitch] = useState(['A', '4'])
     //full preset state
     const [preset, setPreset] = useState([])
 
@@ -87,6 +90,16 @@ export default function Synth(props) {
         }
     }
 
+    const handlePitchChange = (e) => {
+        const p = pitch
+        if (e.target.id === 'note'){
+            p[0] = e.target.value
+        } else if (e.target.id === 'octave'){
+            p[1] = e.target.value
+        }
+        setPitch([...p])
+    }
+
     //helper function to turn effect on off
     const effectOnOff = (n) => {
         const eff = effects
@@ -106,8 +119,9 @@ export default function Synth(props) {
         fullPreset.push(filter)
         fullPreset.push(effects)
         fullPreset.push(envelope)
+        fullPreset.push(pitch)
         setPreset([...fullPreset])
-    }, [envelope, wave, filter, effects])
+    }, [envelope, wave, filter, effects, pitch])
 
     //******** */
     //ENVELOPE HELPER FUNCTIONS
@@ -177,7 +191,8 @@ export default function Synth(props) {
                     <div className='flex border border-black justify-space-between justify-center m-4'>
                         <div className='flex-grow border border-black'>
                             <span className='text-center'>Play</span>
-                            <Trigger effects={effects} wave={wave} envelope={envelope} filter={filter} />
+                            <PitchControl handleChange={handlePitchChange} pitch={pitch} />
+                            <Trigger preset={preset} />
                         </div>
                         <div className='flex-grow border border-black'>
                             <span>Initialize Tone.js</span>
