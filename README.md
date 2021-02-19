@@ -4,6 +4,10 @@
 
 This is a full-stack application that explores the Tone.js package. Users can make accounts, login/logout, explore and save synthesizer presets, and access/update/delete all of their presets. 
 
+### Back End Repo
+
+https://github.com/billymoroney1/synth-backend
+
 ### What is synthesis? What is a preset?
 
 Summarizing what sound design entails is tricky, but in short, making a sound requires manipulating a sound source. In this app, you can pick the type of wave form for your sound source, adjust the envelope settings, choose between a high and low pass filter, toggle effects, and choose a pitch. 
