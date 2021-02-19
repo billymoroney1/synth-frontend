@@ -21,6 +21,9 @@ export default function Home() {
     <Layout>
     <div className='flex flex-col space-y-12 m-12 text-center'>
         <div>
+          Welcome to Synth!
+        </div>
+        <div>
           View your profile to see your saved presets!
         </div>
         <div>

@@ -36,7 +36,7 @@ export default function Profile() {
     }, [])
 
     const viewPresets = presets.map((p, key) => {
-        return <Preset name={p.name} id={p._id} />
+        return <div className='text-center'> <Preset name={p.name} id={p._id} /></div>
     })
 
     return (

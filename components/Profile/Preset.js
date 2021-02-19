@@ -18,14 +18,14 @@ export default function Preset(props) {
     return (
         <>
         {visible && (
-            <div className='border border w-64 h-64 m-12 rounded overflow-hidden shadow-lg'>
+            <div className='border border w-64 h-64 m-12 rounded bg-blue-100 overflow-hidden shadow-lg'>
                 <div>
                     <span>{props.name}</span><br/>
                     <Link href={`/Synth/${props.id}`}>
-                        <button className='inline-block px-8 py-2 mb-4 mt-8 ml-20 text-xs font-medium leading-6 center text-center text-white uppercase transition bg-blue-500 rounded-full shadow ripple hover:shadow-lg hover:bg-pink-600 focus:outline-none'><a>Edit</a></button>
+                        <button className='inline-block px-8 py-2 mb-4 mt-8 ml-18 text-xs font-medium leading-6 center text-center text-white uppercase transition bg-blue-500 rounded-full shadow ripple hover:shadow-lg hover:bg-pink-600 focus:outline-none'><a>Edit</a></button>
                     </Link>
                     <form onSubmit={handleDelete}>
-                        <button className='inline-block px-6 py-2 text-xs ml-20 font-medium leading-6 text-center text-white uppercase transition bg-red-500 rounded-full shadow ripple hover:shadow-lg hover:bg-red-600 focus:outline-none'type='submit'>Delete</button>
+                        <button className='inline-block px-6 py-2 text-xs ml-18 font-medium leading-6 text-center text-white uppercase transition bg-red-500 rounded-full shadow ripple hover:shadow-lg hover:bg-red-600 focus:outline-none'type='submit'>Delete</button>
                     </form>
                 </div>
             </div>  
