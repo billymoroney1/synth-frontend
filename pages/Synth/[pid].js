@@ -35,7 +35,7 @@ export default function Synth(props) {
     //if editing, track current preset's name
     const [name, setName] = useState("")
     //keep track of effects to be passed to the synth(trigger)
-    const [effects, setEffects] = useState([{name: 'reverb', status: false, values: []}, {name: 'filter', status: false, values: []}, {name: 'compressor', status: false, values: []}, {name: 'phaser', status: false, values: []}])
+    const [effects, setEffects] = useState([{name: 'reverb', status: false, values: []}, {name: 'filter', status: false, values: []}, {name: 'compressor', status: false, values: []}, {name: 'phaser', status: false, values: []}, {name: 'chorus', status: false, values: []}])
     //keep track of waveform
     const [wave, setWave] = useState("sine")
     //keep track of filter type
