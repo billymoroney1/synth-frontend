@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import MainOnOff from '../../components/Synth/MainOnOff'
-import Trigger from '../../components/Play/Trigger'
+import Trigger from '../../components/Synth/Trigger'
 import EffectControl from '../../components/Synth/EffectControl'
 import Dropdown from '../../components/Synth/Dropdown'
 import Envelope from '../../components/Synth/Envelope'
 import SavePreset from '../../components/Synth/SavePreset'
 import EditPreset from '../../components/Synth/EditPreset'
 import EffectParams from '../../components/Synth/EffectParams'
-import PitchControl from '../../components/Play/PitchControl'
+import PitchControl from '../../components/Synth/PitchControl'
 // import EffectPanel from '../../components/Synth/EffectPanel'
 
 //nextjs router

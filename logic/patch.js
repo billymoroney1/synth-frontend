@@ -65,7 +65,7 @@ exports.patch = (Tone, preset, sequence = null) => {
                 const delay = new Tone.FeedbackDelay("8n", 0.5).toDestination()
                 synth.connect(delay)
             }
-        }
+
             if (effects[i].name === 'chorus'){
                 const chorus = new Tone.Chorus({
                     frequency : 1.5 ,
@@ -75,14 +75,7 @@ exports.patch = (Tone, preset, sequence = null) => {
                 }).toDestination()
                 synth.connect(chorus)
             }
-            if (effects[i].name === 'vibrato'){
-                // const vibrato = new Tone.Vibrato({
-                //     maxDelay : 0.005 ,
-                //     frequency : 5 ,
-                //     depth : 0.2 ,
-                // }).toDestination()
-                // synth.connect(vibrato)
-            }
+        }  
     }
 
     if (noEffects) {
