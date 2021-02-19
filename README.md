@@ -32,9 +32,14 @@ Another big challenge was figuring out if/how to access the preset information o
 
 ## To test and change locally:
 
-Clone this repo and 
+Clone this repo and in terminal run
+
+```
 npm i
 npm run dev
+```
+
+Then open localhost:3000
 
 ## Wireframe
 
