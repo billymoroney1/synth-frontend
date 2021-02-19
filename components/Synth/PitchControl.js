@@ -10,7 +10,7 @@ export default function PitchControl(props){
 
     return (
         <div>
-            <select onChange={props.handleChange} name='note' id='note' value={pitch[0]}>
+            <select className='w-16 h-16 text-xl' onChange={props.handleChange} name='note' id='note' value={pitch[0]}>
                 <option value='C'>C</option>
                 <option value='C#'>C#</option>
                 <option value='D'>D</option>
@@ -24,7 +24,7 @@ export default function PitchControl(props){
                 <option value='A#'>A#</option>
                 <option value='B'>B</option>
             </select>
-            <select onChange={props.handleChange} name='octave' id='octave' value={pitch[1]}>
+            <select className='w-16 h-16 text-xl' onChange={props.handleChange} name='octave' id='octave' value={pitch[1]}>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>

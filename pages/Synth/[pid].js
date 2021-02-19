@@ -191,7 +191,7 @@ export default function Synth(props) {
                     <div className='synth-row'>
                         <div className='synth-panel bg-gray-200'>
                             <span className='text-2xl'>Play</span>
-                            <div className='flex space-x-4'>
+                            <div className='flex justify-center space-x-8'>
                                 <PitchControl handleChange={handlePitchChange} pitch={pitch} />
                                 <Trigger preset={preset} />
                             </div>
