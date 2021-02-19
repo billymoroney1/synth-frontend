@@ -65,11 +65,12 @@ exports.patch = (Tone, preset, sequence = null) => {
                 const delay = new Tone.FeedbackDelay("8n", 0.5).toDestination()
                 synth.connect(delay)
             }
-        }
+
             if (effects[i].name === 'chorus'){
                 const chorus = new Tone.Chorus(4, 2.5, 0.5).toDestination().start()
                 synth.connect(chorus)
             }
+        }  
     }
 
     if (noEffects) {
