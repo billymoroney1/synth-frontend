@@ -9,9 +9,11 @@ import { useRouter } from 'next/router'
 //components
 // import Dropdown from '../components/Synth/Dropdown'
 
+//this page would be used for sequencing, visualisation 
+
 
 //using this to test before implementing sequence
-import Trigger from '../../components/Synth/Trigger'
+import Trigger from '../../components/Play/Trigger'
 
 import Layout from '../../components/Layout'
 

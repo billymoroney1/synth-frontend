@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import MainOnOff from '../../components/Synth/MainOnOff'
-import Trigger from '../../components/Synth/Trigger'
+import Trigger from '../../components/Play/Trigger'
 import EffectControl from '../../components/Synth/EffectControl'
 import Dropdown from '../../components/Synth/Dropdown'
 import Envelope from '../../components/Synth/Envelope'
 import SavePreset from '../../components/Synth/SavePreset'
 import EditPreset from '../../components/Synth/EditPreset'
 import EffectParams from '../../components/Synth/EffectParams'
-import PitchControl from '../../components/Synth/PitchControl'
+import PitchControl from '../../components/Play/PitchControl'
 // import EffectPanel from '../../components/Synth/EffectPanel'
 
 //nextjs router
@@ -145,7 +145,6 @@ export default function Synth(props) {
 
     // populate effect controls
     const effectControls = effects.map((e, key) => {
-        console.log(e)
         return <EffectControl name={e.name} status={e.status} values={e.values} onOff={effectOnOff} />
     })
 
@@ -159,48 +158,44 @@ export default function Synth(props) {
             </div>
         )}
         {!loading && (
-            <div className='flex flex-col space-y-6 m-8 text-center'>
-                <div className='flex border border-black justify-space-between justify-center m-4'>
-                    <div className='synth-panel'>
+            <div className='flex flex-col space-y-6 text-center w-full h-screen bg-gradient-to-br from-black via-blue-800 to-blue-700'>
+                <div className='synth-row'>
+                    <div className='synth-panel bg-gray-200'>
                         <span className='text-2xl'>Instrument</span>
                         <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
                     </div>
-                    <div className='synth-panel'>
+                    <div className='synth-panel bg-gray-300'>
                         <span className='text-2xl'>Envelope</span>
                         <Envelope adsrChange={adsrChange} env={envelope} />
                     </div>
-                    <div className='synth-panel'>
+                    <div className='synth-panel bg-gray-400'>
                         <span className='text-2xl'>Filter</span>
                         <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
                     </div>
                 </div>
                 
-                <div className='flex justify-center border border-black m-4 space-y-4'>
-                    <div className='synth-panel'>
+                <div className='synth-row'>
+                    <div className='synth-panel bg-gray-100'>
                         <span className='text-2xl'>Effects</span>
                         <div className='flex space-x-4 justify-center'>
                             {effectControls}
-                            {/* <EffectControl name='reverb' status={effects[0].status} onOff={effectOnOff} />
-                            <EffectControl name='filter' onOff={effectOnOff} />
-                            <EffectControl name='compressor' onOff={effectOnOff} />
-                            <EffectControl name='phasor' onOff={effectOnOff} /> */}
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div className='flex border border-black justify-space-between justify-center m-4'>
-                        <div className='synth-panel'>
+                    <div className='synth-row'>
+                        <div className='synth-panel bg-gray-200'>
                             <span className='text-2xl'>Play</span>
-                            <div className='flex space-x-4'>
+                            <div className='flex justify-center space-x-8'>
                                 <PitchControl handleChange={handlePitchChange} pitch={pitch} />
                                 <Trigger preset={preset} />
                             </div>
                         </div>
-                        <div className='synth-panel'>
+                        <div className='synth-panel bg-gray-400'>
                             <span className='text-2xl'>Initialize Tone.js</span>
                             <MainOnOff />
                         </div>
-                        <div className='synth-panel'>
+                        <div className='synth-panel bg-gray-600'>
                             {!edit && (
                             <SavePreset preset={preset} />
                             )}

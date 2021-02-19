@@ -19,9 +19,15 @@ export default function Home() {
 
   return (
     <Layout>
-        <div className='text-center'>
-          About
+    <div className='flex flex-col space-y-12 m-12 text-center'>
+        <div>
+          View your profile to see your saved presets!
         </div>
+        <div>
+          Go to the synth page to make new sounds!
+        </div>
+    </div>
+        
     </Layout>
   )
 }

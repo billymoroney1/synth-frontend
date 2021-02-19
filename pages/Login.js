@@ -80,7 +80,8 @@ export default function Login(props) {
         }
     }
     return (
-            <div className='{styles.container} max-w-md w-full mx-auto mt-4 bg-white p-8 border border-gray-300'>
+        <div className='flex flex-col'>
+            <div className='max-w-md w-full mx-auto my-auto mt-4 bg-white p-8 border border-gray-300'>
                 <div className='text-3xl font-bold text-gray-900 text-center mb-8'>Sign In</div>
                 <Form onSubmit ={handleLogin} ref={form} className='space-y-7'>
                     <FormGroup text="username">
@@ -116,5 +117,6 @@ export default function Login(props) {
                 </Form>
                 <p>Need an account? <a href='/Register'>Register.</a></p>
             </div>
+        </div>
     )
 }

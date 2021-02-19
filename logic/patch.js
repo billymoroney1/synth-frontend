@@ -3,8 +3,6 @@ const { ThumbDown } = require("heroicons-react")
 exports.patch = (Tone, preset, sequence = null) => {
 
 
-    console.log('preset: ', preset)
-
     // current preset object structure:
     // wave
     // filter
@@ -91,7 +89,7 @@ exports.patch = (Tone, preset, sequence = null) => {
         synth.connect(Tone.getDestination())
     }
 
-    synth.triggerAttackRelease(`${pitch}`, "8n")
+    synth.triggerAttackRelease(`${pitch}`, "4n")
 
     // if (sequence) {
     //     if (sequence === '1'){

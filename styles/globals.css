@@ -29,6 +29,9 @@
     @apply border rounded text-xl
   }
   .synth-panel {
-    @apply flex-grow flex flex-col space-y-6 border border-black
+    @apply flex-grow flex flex-col space-y-6 p-6
+  }
+  .synth-row {
+    @apply flex justify-center m-4
   }
 }
