@@ -2,18 +2,22 @@ const { ThumbDown } = require("heroicons-react")
 
 exports.patch = (Tone, preset, sequence = null) => {
 
-    Tone.start()
+
+    console.log('preset: ', preset)
 
     // current preset object structure:
     // wave
     // filter
     // effects
     // envelope
+    // pitch
 
-    const wave = preset.options[0]
-    const filter = preset.options[1]
-    const effects = preset.options[2]
-    const envelope = preset.options[3]
+    const wave = preset[0]
+    const filter = preset[1]
+    const effects = preset[2]
+    const envelope = preset[3]
+    const p = preset[4]
+    const pitch = p[0] + p[1] 
 
     //make a monosynth
     const synth = new Tone.Synth({
@@ -93,8 +97,9 @@ exports.patch = (Tone, preset, sequence = null) => {
         }
     }
 
+    console.log('PITCH: ', pitch)
     if (!sequence) {
-        synth.triggerAttackRelease("D2", "8n")
+        synth.triggerAttackRelease(`${pitch}`, "8n")
     }
 
 }
