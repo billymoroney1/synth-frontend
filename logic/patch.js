@@ -67,7 +67,7 @@ exports.patch = (Tone, preset, sequence = null) => {
             }
 
             if (effects[i].name === 'chorus'){
-                const chorus = new Tone.Chorus(4, 2.5, 0.5).toDestination()
+                const chorus = new Tone.Chorus(4, 2.5, 0.5).toDestination().start()
                 synth.connect(chorus)
             }
         }  
