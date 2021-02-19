@@ -11,10 +11,6 @@ import { useRouter } from 'next/router'
 
 //this page would be used for sequencing, visualisation 
 
-
-//using this to test before implementing sequence
-import Trigger from '../../components/Play/Trigger'
-
 import Layout from '../../components/Layout'
 
 import * as Tone from 'tone'
