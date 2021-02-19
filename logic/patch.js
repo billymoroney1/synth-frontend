@@ -3,8 +3,6 @@ const { ThumbDown } = require("heroicons-react")
 exports.patch = (Tone, preset, sequence = null) => {
 
 
-    console.log('preset: ', preset)
-
     // current preset object structure:
     // wave
     // filter
@@ -69,12 +67,7 @@ exports.patch = (Tone, preset, sequence = null) => {
             }
         }
             if (effects[i].name === 'chorus'){
-                const chorus = new Tone.Chorus({
-                    frequency : 1.5 ,
-                    delayTime : 3.5 ,
-                    depth : 0.7 ,
-                    spread : 180
-                    }).toDestination()
+                const chorus = new Tone.Chorus(4, 2.5, 0.5).toDestination().start()
                 synth.connect(chorus)
             }
     }

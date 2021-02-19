@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import MainOnOff from '../../components/Synth/MainOnOff'
-import Trigger from '../../components/Synth/Trigger'
+import Trigger from '../../components/Play/Trigger'
 import EffectControl from '../../components/Synth/EffectControl'
 import Dropdown from '../../components/Synth/Dropdown'
 import Envelope from '../../components/Synth/Envelope'
 import SavePreset from '../../components/Synth/SavePreset'
 import EditPreset from '../../components/Synth/EditPreset'
 import EffectParams from '../../components/Synth/EffectParams'
-import PitchControl from '../../components/Synth/PitchControl'
+import PitchControl from '../../components/Play/PitchControl'
 // import EffectPanel from '../../components/Synth/EffectPanel'
 
 //nextjs router
@@ -145,7 +145,6 @@ export default function Synth(props) {
 
     // populate effect controls
     const effectControls = effects.map((e, key) => {
-        console.log(e)
         return <EffectControl name={e.name} status={e.status} values={e.values} onOff={effectOnOff} />
     })
 
@@ -180,10 +179,6 @@ export default function Synth(props) {
                         <span className='text-2xl'>Effects</span>
                         <div className='flex space-x-4 justify-center'>
                             {effectControls}
-                            {/* <EffectControl name='reverb' status={effects[0].status} onOff={effectOnOff} />
-                            <EffectControl name='filter' onOff={effectOnOff} />
-                            <EffectControl name='compressor' onOff={effectOnOff} />
-                            <EffectControl name='phasor' onOff={effectOnOff} /> */}
                         </div>
                     </div>
                 </div>
