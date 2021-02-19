@@ -28,4 +28,7 @@
   .name-submit {
     @apply border rounded text-xl
   }
+  .synth-panel {
+    @apply flex-grow flex flex-col space-y-6 border border-black
+  }
 }

@@ -159,25 +159,25 @@ export default function Synth(props) {
             </div>
         )}
         {!loading && (
-            <div className='flex flex-col space-y-12 m-8'>
+            <div className='flex flex-col space-y-6 m-8 text-center'>
                 <div className='flex border border-black justify-space-between justify-center m-4'>
-                    <div className='flex-grow border border-black'>
-                        <span>Instrument</span>
+                    <div className='synth-panel'>
+                        <span className='text-2xl'>Instrument</span>
                         <Dropdown name='waveType' value={wave} options={['sine', 'triangle', 'square', 'sawtooth']} handleChange={optionSelect} />
                     </div>
-                    <div className='flex-grow border border-black'>
-                        <span>Envelope</span>
+                    <div className='synth-panel'>
+                        <span className='text-2xl'>Envelope</span>
                         <Envelope adsrChange={adsrChange} env={envelope} />
                     </div>
-                    <div className='flex-grow border border-black'>
-                        <span>Filter</span>
+                    <div className='synth-panel'>
+                        <span className='text-2xl'>Filter</span>
                         <Dropdown name='filterType' value={filter} options={['lowpass', 'highpass']} handleChange={optionSelect} />
                     </div>
                 </div>
                 
-                <div className='flex justify-center border border-black m-4'>
-                    <div className='flex flex-col space-y-6'>
-                        <span className='text-center'>Effects</span>
+                <div className='flex justify-center border border-black m-4 space-y-4'>
+                    <div className='synth-panel'>
+                        <span className='text-2xl'>Effects</span>
                         <div className='flex space-x-4 justify-center'>
                             {effectControls}
                             {/* <EffectControl name='reverb' status={effects[0].status} onOff={effectOnOff} />
@@ -189,16 +189,18 @@ export default function Synth(props) {
                 </div>
                 <div>
                     <div className='flex border border-black justify-space-between justify-center m-4'>
-                        <div className='flex-grow border border-black'>
-                            <span className='text-center'>Play</span>
-                            <PitchControl handleChange={handlePitchChange} pitch={pitch} />
-                            <Trigger preset={preset} />
+                        <div className='synth-panel'>
+                            <span className='text-2xl'>Play</span>
+                            <div className='flex space-x-4'>
+                                <PitchControl handleChange={handlePitchChange} pitch={pitch} />
+                                <Trigger preset={preset} />
+                            </div>
                         </div>
-                        <div className='flex-grow border border-black'>
-                            <span>Initialize Tone.js</span>
+                        <div className='synth-panel'>
+                            <span className='text-2xl'>Initialize Tone.js</span>
                             <MainOnOff />
                         </div>
-                        <div className='flex-grow border border-black'>
+                        <div className='synth-panel'>
                             {!edit && (
                             <SavePreset preset={preset} />
                             )}
