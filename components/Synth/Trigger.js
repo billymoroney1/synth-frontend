@@ -13,12 +13,12 @@ export default function Trigger(props) {
         if (!active){
             setActive(true)
             setTimeout(() => {setActive(false)}, 200)
-            patch()
+            patch(Tone, props.preset)
         }
     }
 
-    patch(Tone, props.preset)
     
+
     return (
         //this just fires off a quick flash to indicate that the button was clicked
         <div className={active ? 'act-trig' : 'inac-trig'} onClick={handleClick}>
