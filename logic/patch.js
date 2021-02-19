@@ -70,6 +70,11 @@ exports.patch = (Tone, preset, sequence = null) => {
                 const chorus = new Tone.Chorus(4, 2.5, 0.5).toDestination().start()
                 synth.connect(chorus)
             }
+
+            if (effects[i].name === 'compressor'){
+                const compressor = new Tone.Compressor(-70, 4).toDestination()
+                synth.connect(compressor)
+            }
         }  
     }
 
