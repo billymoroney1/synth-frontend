@@ -74,8 +74,16 @@ exports.patch = (Tone, preset, sequence = null) => {
                     delayTime : 3.5 ,
                     depth : 0.7 ,
                     spread : 180
-                    }).toDestination()
+                }).toDestination()
                 synth.connect(chorus)
+            }
+            if (effects[i].name === 'vibrato'){
+                // const vibrato = new Tone.Vibrato({
+                //     maxDelay : 0.005 ,
+                //     frequency : 5 ,
+                //     depth : 0.2 ,
+                // }).toDestination()
+                // synth.connect(vibrato)
             }
     }
 
