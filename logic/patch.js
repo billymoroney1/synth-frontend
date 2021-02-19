@@ -68,6 +68,15 @@ exports.patch = (Tone, preset, sequence = null) => {
                 synth.connect(delay)
             }
         }
+            if (effects[i].name === 'chorus'){
+                const chorus = new Tone.Chorus({
+                    frequency : 1.5 ,
+                    delayTime : 3.5 ,
+                    depth : 0.7 ,
+                    spread : 180
+                    }).toDestination()
+                synth.connect(chorus)
+            }
     }
 
     if (noEffects) {
