@@ -40,10 +40,10 @@ export default function SavePreset(props) {
             </form>
 
             {message && (
-                        <div>
-                            {message}
-                        </div>
-                    )}
+                <div>
+                    {message}
+                </div>
+            )}
         </div>
     )
 }

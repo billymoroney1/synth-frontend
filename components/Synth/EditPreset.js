@@ -31,10 +31,10 @@ export default function EditPreset(props) {
             </form>
 
             {message && (
-                        <div>
-                            {message}
-                        </div>
-                    )}
+                <div>
+                    {message}
+                </div>
+            )}
         </div>
     )
 }

@@ -54,7 +54,7 @@ exports.patch = (Tone, preset, sequence = null) => {
                 synth.connect(f)
             }  
     
-            if (effects[i].name === 'phasor'){
+            if (effects[i].name === 'phaser'){
                 const phaser = new Tone.Phaser({
                 "frequency" : 15,
                 "octaves" : 6,
@@ -112,5 +112,3 @@ exports.patch = (Tone, preset, sequence = null) => {
 // setTimeout(() => {
 //     clearInterval(myTimer)
 // }, 2000)
-
-

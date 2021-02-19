@@ -17,8 +17,6 @@ export default function Trigger(props) {
         }
     }
 
-    
-
     return (
         //this just fires off a quick flash to indicate that the button was clicked
         <div className={active ? 'act-trig' : 'inac-trig'} onClick={handleClick}>
