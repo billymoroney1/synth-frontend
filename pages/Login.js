@@ -66,7 +66,7 @@ export default function Login(props) {
         if (checkBtn.current.context._errors.length === 0) {
             login(username, password).then(
                 () => {
-                    router.push('/Profile')
+                    router.push('/')
                 },
                 (error) => {
                     //set loading to false
