@@ -45,19 +45,19 @@ Then open localhost:3000
 
 ## Wireframe
 ### Sign Up Page
-<img width="854" alt="Screen Shot 2021-02-19 at 11 47 55 PM" src="https://user-images.githubusercontent.com/60105611/108584186-48ea0f00-730d-11eb-987f-609b1817296f.png">
+<img width="500" alt="Screen Shot 2021-02-19 at 11 47 55 PM" src="https://user-images.githubusercontent.com/60105611/108584186-48ea0f00-730d-11eb-987f-609b1817296f.png">
 
 ### Login Page
-<img width="821" alt="Screen Shot 2021-02-19 at 11 48 28 PM" src="https://user-images.githubusercontent.com/60105611/108584204-6e771880-730d-11eb-96d3-30769e14a13f.png">
+<img width="500" alt="Screen Shot 2021-02-19 at 11 48 28 PM" src="https://user-images.githubusercontent.com/60105611/108584204-6e771880-730d-11eb-96d3-30769e14a13f.png">
 
 ### Home Page
-<img width="701" alt="Screen Shot 2021-02-19 at 11 49 02 PM" src="https://user-images.githubusercontent.com/60105611/108584216-86e73300-730d-11eb-9119-f401b2876b1a.png">
+<img width="500" alt="Screen Shot 2021-02-19 at 11 49 02 PM" src="https://user-images.githubusercontent.com/60105611/108584216-86e73300-730d-11eb-9119-f401b2876b1a.png">
 
 ### Profile Page
-<img width="678" alt="Screen Shot 2021-02-19 at 11 49 24 PM" src="https://user-images.githubusercontent.com/60105611/108584230-a2523e00-730d-11eb-95fd-8245ff13e3c8.png">
+<img width="500" alt="Screen Shot 2021-02-19 at 11 49 24 PM" src="https://user-images.githubusercontent.com/60105611/108584230-a2523e00-730d-11eb-95fd-8245ff13e3c8.png">
 
 ### Synth Page
-<img width="851" alt="Screen Shot 2021-02-19 at 11 49 48 PM" src="https://user-images.githubusercontent.com/60105611/108584236-af6f2d00-730d-11eb-9c57-41d4906024ec.png">
+<img width="500" alt="Screen Shot 2021-02-19 at 11 49 48 PM" src="https://user-images.githubusercontent.com/60105611/108584236-af6f2d00-730d-11eb-9c57-41d4906024ec.png">
 
 ### ERD
 ##### API: synth-backend.herokuapp.com/
