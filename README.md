@@ -60,6 +60,9 @@ Then open localhost:3000
 <img width="500" alt="Screen Shot 2021-02-19 at 11 49 48 PM" src="https://user-images.githubusercontent.com/60105611/108584236-af6f2d00-730d-11eb-9c57-41d4906024ec.png">
 
 ### ERD
+
+<img alt='synth-erd' src='./public/synth_erd.png' />
+
 ##### API: synth-backend.herokuapp.com/
 
 | Endpoints | CRUD Action | Description |
