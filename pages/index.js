@@ -19,18 +19,30 @@ export default function Home() {
 
   return (
     <Layout>
-    <div className='flex flex-col space-y-12 m-12 text-center'>
-        <div>
-          Welcome to Synth!
-        </div>
-        <div>
-          View your profile to see your saved presets!
-        </div>
-        <div>
-          Go to the synth page to make new sounds!
-        </div>
-    </div>
-        
+    <div style= {{ 
+        borderTop: '2px solid blue',
+        backgroundColor: 'black',
+        backgroundPosition: 'center',
+        backgroundSize: '100%',
+        backgroundRepeat: 'no-repeat',
+        height: '100vh',
+      }}
+      >
+      </div>        
+      <div style={{color: 'white', fontSize: '2vw', marginTop: '-43vw', textAlign: 'center', fontFamily: 'Ariel', fontWeight: '100',}}>
+          <p style={{fontFamily: 'sans-serif'}}>Welcome to Synth</p>
+      </div>
+      <div style= {{
+          backgroundImage: 'url(https://i.pinimg.com/originals/56/78/e6/5678e613f65dcb80ea0f441bb392f45d.gif)',
+          backgroundPosition: 'center',
+          backgroundSize: '100%',
+          backgroundRepeat: 'no-repeat',
+          height: '70vh',
+          width: '100vh',
+          marginLeft: '25vw',
+        }}
+        >
+      </div>        
     </Layout>
   )
 }

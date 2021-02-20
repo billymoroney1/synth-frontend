@@ -14,6 +14,7 @@ import { getCurrentUser } from '../services/auth.service'
 
 import { useRouter } from 'next/router'
 
+
 export default function Profile() {
 
     const [presets, setPresets] = useState([])
