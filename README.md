@@ -61,7 +61,7 @@ Then open localhost:3000
 
 ### ERD
 
-<img alt='synth-erd' src='./public/synth_erd.png' />
+<img alt='synth-erd' src='/public/synth_erd.png' />
 
 ##### API: synth-backend.herokuapp.com/
 
