@@ -42,7 +42,7 @@ export default function Home() {
           marginLeft: '25vw',
         }}
         >
-      </div>        
+      </div>       
     </Layout>
   )
 }
