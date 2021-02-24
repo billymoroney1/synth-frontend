@@ -105,7 +105,7 @@ export default function Login(props) {
                         />
                     </FormGroup>
 
-                    <ButtonSpinner text="Login" login={loading} />
+                    <ButtonSpinner text="Login" loading={loading} />
 
                     {message && (
                         <div>

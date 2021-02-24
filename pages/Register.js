@@ -76,6 +76,7 @@ export default function Register(props) {
     const [email, setEmail] = useState("")
     const [successful, setSuccessful] = useState(false)
     const [message, setMessage] = useState("")
+    const [loading, setLoading] = useState(false)
 
     //update state helper functions
     const onChangeUsername = (e) => {
@@ -97,6 +98,8 @@ export default function Register(props) {
     //submit helper function
     const handleRegister = (e) => {
         e.preventDefault()
+
+        setLoading(true)
         
         //validate all fields
         form.current.validateAll()
@@ -158,7 +161,7 @@ export default function Register(props) {
                         />
                     </FormGroup>
 
-                    <ButtonSpinner text="Register" />
+                    <ButtonSpinner text="Register" loading={loading} />
 
                     {message && (
                         <div>
