@@ -1,6 +1,6 @@
 # Synth
 
-#### (Deployed Front End URL TBD)
+#### https://synth-frontend.vercel.app/
 
 ## About
 
