@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL='http://synth-backend.herokuapp.com/api/presets/'
+const API_URL='https://synth-backend.herokuapp.com/api/presets/'
 
 import {setItem, getItem, removeItem} from '../utilities/localStorage.utilities'
 
