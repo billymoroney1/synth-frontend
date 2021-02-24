@@ -9,7 +9,7 @@ const ButtonSpinner = ({loading, text}) => {
                 {loading && (
                     <div className='flex justify-center'>
                         <div className='m-auto'>
-                            <div className='animate-spin w-36 h-36 border-4 border-black'></div>
+                            <div className='animate-spin w-12 h-12 border-4 border-black'></div>
                         </div>
                     </div>
                 )}
